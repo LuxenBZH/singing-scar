@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="e2a8d59b-0e34-4a7c-bf5f-db7a2bb34cde">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_VLOCK" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value=" " />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Source_SpiritVision" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_SRP_Vlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_AVOIDDEATH" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Careful" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="This character attempt to knock out ennemies instead of killing them. Improve chances to put a character Unconscious on a mortal blow." />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="statIcons_MarkOfDeath" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_SRP_AvoidDeath" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_SRP_AvoidDeath" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_PLOTARMOR" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_SRP_PlotArmor" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_CAREFULBLOWS" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_SRP_CarefulBlows" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_FATIGUE" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Fatigue" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="This character becomes exhausted." />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Source_DrainWillpower" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_SRP_Fatigue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_MOVINGINVIS" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="statIcons_Blind" />
+        <field name="MaterialType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="MaterialType" />
+        <field name="Material" type="StringStatObjectFieldDefinition" value="ff5adf58-0b07-4fd7-8add-6175258e89de" />
+        <field name="MaterialApplyBody" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="MaterialApplyArmor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="MaterialApplyWeapon" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_STP_MovingInvis" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value=" " />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_SRP_MovingInvis" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_BASE" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_NIGHTVISION" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Low Sight Range" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Vision reduced." />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="statIcons_Blind" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_SRP_NightVision" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_SRP_NightVision" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_DEATHTAG" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_SRP_DeathTag" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_DARKFOCUS" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Shadow Focus" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Increase Accuracy." />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="skill_shadow_focus" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="FormatStringColor" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_DarkFocus" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_DarkFocus" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_CHANNEL" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Tenebrium Channeling" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Block T-Energy growth." />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="skill_shadow_channel" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Status_Tenebrium_Channeling_01" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_DarkChannel" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_TAINTEDFEET" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Tainted Feet" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Damage received from surfaces and cloud greatly increased." />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="skill_taintedfeet" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Status_Tenebrium_Feets_01:Dummy_R_Foot_01;RS3_FX_Status_Tenebrium_Feets_01:Dummy_L_Foot_01" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="34" enumeration_type_name="SavingThrow" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Feet" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_OVERCHARGE1" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Tenebrium Overcharge" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge1" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_OVERCHARGE2" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Tenebrium Overcharge" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge2" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_OVERCHARGE3" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Tenebrium Overcharge" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge3" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_OVERCHARGE4" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Tenebrium Overcharge" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge4" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

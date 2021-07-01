@@ -1,0 +1,11 @@
+{
+    "RequiredExtensionVersion": 53,
+	"ModTable" : "SingingScar",
+    "FeatureFlags": [
+        "OsirisExtensions",
+        "Lua",
+        "CustomStats",
+		"CustomStatsPane",
+        "Preprocessor"
+    ]
+}

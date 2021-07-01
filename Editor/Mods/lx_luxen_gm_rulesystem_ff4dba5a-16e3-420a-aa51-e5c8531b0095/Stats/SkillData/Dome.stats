@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="92051e4d-6ecc-4be9-a36c-fe8f8899b32d">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_HollowPool" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="AIFlags" />
+        <field name="Lifetime" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="!Dead" />
+        <field name="AuraSelf" type="StringStatObjectFieldDefinition" value="TEN_POOL" />
+        <field name="AuraAllies" type="StringStatObjectFieldDefinition" value="TEN_POOL" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="skill_hollow_pool" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Hollow Pool" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Create a pool of Tenebrium, reducing Movement of the characters in the area and deal [1] each turn. Remove surfaces on creation." />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_soul_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_soul_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Tenebrium_Prepare_Divine_Shout_Root_01,KeepRot:Dummy_Root;RS3_FX_Skills_Tenebrium_Prepare_Hands_01:Dummy_R_HandFX;RS3_FX_Skills_Tenebrium_Prepare_Hands_01:Dummy_L_HandFX" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_aoe_voodoo_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="DomeEffect" type="StringStatObjectFieldDefinition" value="TSP_FX_Skills_Hollow_Pool_01" />
+        <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="!Dead" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillAbility" />
+        <field name="AuraNeutrals" type="StringStatObjectFieldDefinition" value="TEN_POOL" />
+        <field name="AuraEnemies" type="StringStatObjectFieldDefinition" value="TEN_POOL" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Weapon:TEN_Damage_HollowPool:Damage" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateSurface,5,,None" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Tenebrium_Channeling_Cast_Root_01" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag SRP_TE30" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="Sourcery 1" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

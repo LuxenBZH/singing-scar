@@ -1,0 +1,79 @@
+<contentList>
+	<content contentuid="h01678d8ag7e64g45fdg9158g60b2eca49d3e">Your total power, combined from your body and mental strength.&lt;br&gt;&lt;font color=#1a8cff&quot;&gt;+1 per point in Endurance, Agility or Mind.&lt;/font&gt;</content>
+	<content contentuid="h0345257fgf896g4a83gb2d2gdc0383f0a559">Your general body building and how good your are at accomplishing feats with it.&lt;br&gt;Each point also increase your &lt;font color=&quot;#ff8000&quot;&gt;Death Saving throw&lt;/font&gt; chances by &lt;font color=&quot;#ff8000&quot;&gt;1%&lt;/font&gt;.&lt;br&gt;&lt;font color=#1a8cff&gt;Value is average between Endurance and Agility (rounded down).&lt;/font&gt;</content>
+	<content contentuid="h04089117g1c54g472fgb8c3g5eae36b55787">Aptitudes</content>
+	<content contentuid="h05a33a89g0f01g4a09gbf54g444d99834403">Best used for making someone yield by putting physical and/or mental pressure.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per 3 points in Might.&lt;/font&gt;</content>
+	<content contentuid="h05e2939fg9f5dg4509g9a60g8a7ae15fc030">Base Apt.</content>
+	<content contentuid="h07733051g3467g4418g8eb8g4b5c2f338392">Represents the social capabilities of your character. The &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; increase based on how much points you already invested:&lt;br&gt;1-2 : &lt;font color=#c68c53&gt;+8&lt;/font&gt;&lt;br&gt;3-4 : &lt;font color=#c68c53&gt;+7&lt;/font&gt;&lt;br&gt;5-6 : &lt;font color=#c68c53&gt;+6&lt;/font&gt;&lt;br&gt;7-8 : &lt;font color=#c68c53&gt;+5&lt;/font&gt;&lt;br&gt;9-10 : &lt;font color=#c68c53&gt;+4&lt;/font&gt;&lt;br&gt;Each point in Persuasion increase the &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; by &lt;font color=#c68c53&gt;2&lt;/font&gt;&lt;br&gt;Each stat cannot go above &lt;font color=#ccffff&gt;10&lt;/font&gt;.</content>
+	<content contentuid="h120a891eg4dacg423dg8cf5g987cdc6ddd3c">Suasion</content>
+	<content contentuid="h164ee5ecg5984g4282ga843g2f0e29d61713">&lt;font color=#008055&gt;Persona&lt;/font&gt;</content>
+	<content contentuid="h1c938d03g07cfg4d6cg9aedgcbf3a3aab7d8">Blacksmithing</content>
+	<content contentuid="h1def54a8gcadbg4990gb5ddg8e059c469e94"> </content>
+	<content contentuid="h360e01beg3f4ag4743gae5agfc9e64c9a29e">Alchemy</content>
+	<content contentuid="h37f24ac8g20a8g49b9g99b1g848dac3b0715">Enchanter</content>
+	<content contentuid="h3b064147g098cg413ag9cdbg26c5c3a80d70">Base Know.</content>
+	<content contentuid="h400f59b9g7823g4f3aga4c3g4c36fe454309">Academics</content>
+	<content contentuid="h4268de21g4509g488egb062g74410396d893">&lt;font color=#665200&gt;Fortune&lt;/font&gt;</content>
+	<content contentuid="h43d8720bg64b6g4201g8b4dge44ca25b35ea">Medicine</content>
+	<content contentuid="h4454c908g09f8g44f3gae49gaee752809398">Used to adjust the sight range of a character. Each point given or subtracted is 1m.</content>
+	<content contentuid="h4920c69ag1679g4246gb8f4g5442f23fd86a">Your logic, think speed and mind raw processing power and memory.&lt;br&gt; Each point also increase your &lt;font color=&quot;#3377ff&quot;&gt;Identification&lt;/font&gt; chance of enemies vitality and armours by &lt;font color=&quot;#3377ff&quot;&gt;3%&lt;/font&gt; on combat start. Your total chance is currently &lt;font color=&quot;#3377ff&quot;&gt;[1]%&lt;/font&gt;.&lt;br&gt;Your current cap is &lt;font color=#ccffff&gt;[2]&lt;/font&gt; and can be increased by Intelligence and Memory.</content>
+	<content contentuid="h4ab4ccf0g11bag40b3ga513g73b9ae71a83b"> </content>
+	<content contentuid="h4b614ba2gc7c8g4373g8492gb5a79e981fba">Your ability to move with finesse, sleight of hand, body supleness.&lt;br&gt;Each point also increase your &lt;font color=&quot;#44cc00&quot;&gt;Sight range&lt;/font&gt; by &lt;font color=&quot;#44cc00&quot;&gt;0.5m&lt;/font&gt;. Your total sight is currently &lt;font color=&quot;#44cc00&quot;&gt;[1]m&lt;/font&gt;.&lt;br&gt;Your current cap is &lt;font color=#ccffff&gt;[2]&lt;/font&gt; and can be increased by Finesse and Wits.</content>
+	<content contentuid="h4baf7749g3516g4366g9436g2123baebd1c8"></content>
+	<content contentuid="h5006e0f6g4918g4cbag90bdgd30a36fffdff">Knowledge about nature, animals, tracking and orientation.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;When doing a sleeping roll, if the result is under your survivalism score you can decide to reroll with a -3 penalty.&lt;/font&gt;</content>
+	<content contentuid="h5009db5fgb997g48cagacd2g67a9fdf22e02"> </content>
+	<content contentuid="h54a5d918g4e9fg40efga9bfga0060d112cd6">Best used to confuse someone, lie and distract.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Agility.&lt;/font&gt;</content>
+	<content contentuid="h59722366g5d35g456bg9575ga4dc398a3d65">Arcanes</content>
+	<content contentuid="h632f1f1ega940g44dcg8298gaf7d622bb43c">Your ability to sustain physical pressures and keep going on a longer time but also your raw strength.&lt;br&gt;Each point also increase your &lt;font color=&quot;#ff8000&quot;&gt;Death Saving throw&lt;/font&gt; chances by &lt;font color=&quot;#ff8000&quot;&gt;2%&lt;/font&gt;. Your total chance is currently &lt;font color=&quot;#ff8000&quot;&gt;[1]%&lt;/font&gt;.&lt;br&gt;Your current cap is &lt;font color=#ccffff&gt;[2]&lt;/font&gt; and can be increased by Strength and Constitution.</content>
+	<content contentuid="h6524370fge533g4a9cg9277g3edf9b368370">&lt;font color=&quot;#00802b&quot;&gt;Agility&lt;/font&gt;</content>
+	<content contentuid="h6579602cg4402g42b2gb3b3g6e824b9b07ea">Perception and knowledge about magic, spells and rituals.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;The GM can give a bonus if you&apos;re proficient with the magic you&apos;re trying to detect&lt;/font&gt;</content>
+	<content contentuid="h6c7f7380ge672g4e36ga50fg915968e20086">Base Social</content>
+	<content contentuid="h6cace2ffg6173g46a9g8057gb48b87b73499">Overall culture, advanced knowledge and history of Rivellon. Used for knowledge rolls if the subject of the roll does not fit in any other category.</content>
+	<content contentuid="h6e785c6cg3c01g4937g99b7g3dc7c5b1416c">Vision</content>
+	<content contentuid="h74435d87g2a01g49a2gbe62gbb21ccd70625">Miscelleanous</content>
+	<content contentuid="h762a1225g4179g402agbde3gd889497dc811">Invest Persona points to develop your Social abilities. Each stack of 3 Persona points grants you one point to spend in Social.</content>
+	<content contentuid="h76895619g083fg4b53gbe26g18ab6c33910d">Body</content>
+	<content contentuid="h797eca4dg8164g4909gb7e3g4afb72425694"> </content>
+	<content contentuid="h7b87509cg6034g49cfgaeabgd32760de3659">Might</content>
+	<content contentuid="h7ce03212g217cg4476g8a1bg200123169de6">Persona points are a currency to increase your stats. You can gain some by participating, but also as a reward for roleplaying and creating interesting situations.</content>
+	<content contentuid="h80aa9f0bg3e5cg477dg9524gb3c9e2b0f2d8">Give you the ability to look for herbs and special ingredients during downtimes. Also reflects your knowledge about plants, chemistry and biology.&lt;br&gt;Rules works as follows: each point increase the Target number by 10 and the unit figure of the result is the number of ingredients found.</content>
+	<content contentuid="h8250e8dcg34c4g458eg805bg80873c80dfc8">Fortune allow to roll again. Replenish once per session.</content>
+	<content contentuid="h870da36ag7cbag4ef8g872dgac732b0174a4">Knowledge</content>
+	<content contentuid="h897dbc88g0397g4841gb42fg72483f194143">Social</content>
+	<content contentuid="h8c807acfg8794g4fd9ga9b9g6bc054b09b11">Social</content>
+	<content contentuid="h8f97fea5gb1f1g48d0gbd2fgb255e58836d5">Development</content>
+	<content contentuid="h94833ffeg5788g4f34g99e0g45b3f678adc4">&lt;font color=&quot;#ff0000&quot;&gt;Endurance&lt;/font&gt;</content>
+	<content contentuid="h94888701g37e3g49edgae2dg427bbbf84ce8">Reflects your knowledge in Sourcery. The greater it is, the more you can manipulate Tenebrium tainting.</content>
+	<content contentuid="h97ca7d0eg4edeg4017gb52bg1e0723b17bc4">Tenebrium Infusion</content>
+	<content contentuid="h98373cccg3d1eg40acgaeb4g9f9a5ff2e570">Insight</content>
+	<content contentuid="h9ae1c842g7a84g49b7gae40g23b5ed3cfd6e">Invest Persona points to develop your Knowledge. Each stack of 2 Persona points grants you one point to spend in Knowledge.</content>
+	<content contentuid="h9d4d6cc1gb75fg4a0bga025g365b791a35ef">Reflect your body physical and spiritual condition. Each time you die, you loose a point. &lt;font color=#ff0000&gt;At 0, your character is completely knocked out !&lt;/font&gt;</content>
+	<content contentuid="haa456c6cgf452g40d5gb2e4geb5a5f5aab82">Intimidation</content>
+	<content contentuid="haf022bf8g09a3g4247gb719g315757f28902">Invest Persona points to develop your Aptitudes. Each stack of 4 Persona points grants you one point to spend in Aptitudes.</content>
+	<content contentuid="haf3c259bg1be5g4690gb66egb2dfd7ec73f4">Best used for convincing someone by reasoning, agreements and having arguments.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Mind.&lt;/font&gt;</content>
+	<content contentuid="hb1168726g75cag4b94g902dgd7507ccd1451">Willpower</content>
+	<content contentuid="hb1d93cffg3807g47a6g8229g609e6b113e61">Your ability to spot unusual things in the environment to catch details and fast movements.&lt;br&gt;Each point also increase your &lt;font color=&quot;#44cc00&quot;&gt;Sight range&lt;/font&gt; by &lt;font color=&quot;#44cc00&quot;&gt;0.2m&lt;/font&gt; and your &lt;font color=&quot;#3377ff&quot;&gt;Identification&lt;/font&gt; chance by &lt;font color=&quot;#3377ff&quot;&gt;1%&lt;/font&gt;.&lt;br&gt;&lt;font color=&quot;#1a8cff&quot;&gt;Value is average between Agility and Mind (rounded down).&lt;/font&gt;</content>
+	<content contentuid="hb47e390dgc4b3g4d4fgb247gf3a73594c629">Survivalism</content>
+	<content contentuid="hb9e13ee3g41c7g4fafga5a4g9532138dc8b4">Tailoring</content>
+	<content contentuid="hbc4bf8cag664eg4c4ag92bfg30a0b673a54f">Body Condition</content>
+	<content contentuid="hc01b0dd1g2173g42deg9b76g0e5740b5a77a">Gives your the ability to craft rings, Strength equipment and enhance it. Also reflects your knowledge about weapons, armors and geology.&lt;br&gt;See the rule sheet for detailed crafting rules.</content>
+	<content contentuid="hc3468266g50beg4b6ag87f4ge34c3302ef34">Your ability to sustain mental pressure as well as pushing your limits.&lt;br&gt;Each point also increase your &lt;font color=&quot;#ff8000&quot;&gt;Death Saving throw&lt;/font&gt; chances by &lt;font color=&quot;#ff8000&quot;&gt;1%&lt;/font&gt;.&lt;br&gt;&lt;font color=#1a8cff&gt;Value is average between Endurance and Mind (rounded down).&lt;/font&gt;</content>
+	<content contentuid="hc4ba6822g1862g4fd1g92bfgaadcf3953f11">Knowledge</content>
+	<content contentuid="hc6fbc759gc46bg4e4bgb71cg6474d40539d4">Charisma</content>
+	<content contentuid="hcb48e9dcgfc7eg4173ga6cbgb861776092d0">Manipulation</content>
+	<content contentuid="hd3c168bdgfc78g46ddg812ega3cd78e0b797">Represents who you are physically and mentally. The &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; increase based on how much points you already invested :&lt;br&gt;1-4 : &lt;font color=#c68c53&gt;+6&lt;/font&gt;&lt;br&gt;5-8 : &lt;font color=#c68c53&gt;+5&lt;/font&gt;&lt;br&gt;9-12 : &lt;font color=#c68c53&gt;+4&lt;/font&gt;&lt;br&gt;13-16 : &lt;font color=#c68c53&gt;+3&lt;/font&gt;&lt;br&gt;17-20 : &lt;font color=#c68c53&gt;+2&lt;/font&gt;&lt;br&gt;Each stat cannot go above a base of &lt;font color=#ccffff&gt;8&lt;/font&gt;. This limit increased by your &lt;font color=#ccffff&gt;Attributes&lt;/font&gt;.</content>
+	<content contentuid="hd3cd6099ge07cg4f6fgbda0ge3b5d01149ab">Tenebrium Energy</content>
+	<content contentuid="hd5698606g9d3fg4d44gb2b1g3fc17b8403cb"></content>
+	<content contentuid="hd74d7390g1509g4a27g8666g595aff1bae51">Best used for introspection as well as trying to get a hint in some situations.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Willpower.&lt;/font&gt;</content>
+	<content contentuid="hdb570a90ga6b1g4f64g979ag015c2d7fa651">Intuition</content>
+	<content contentuid="he000bc7dga567g4214gaebfg797d63d8b81c"> </content>
+	<content contentuid="he7a98b35gf9aag4198ga157gee9f7fd03f0c">Knowledge about common races body and how to cure deep afflictions that common spells can not cure. Can be used to cure some conditions if you have the proper tools.</content>
+	<content contentuid="he7ec5735g74a2g4cb7gbaeag27c33ee0d69f">Represents the knowledge of your character in diverse fields.The &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; increase by &lt;font color=#c68c53&gt;8&lt;/font&gt; for each point invested.&lt;br&gt;Each point in Telekinesis and Loremaster increase the &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; by &lt;font color=#c68c53&gt;2&lt;/font&gt;&lt;br&gt;Each stat cannot go above &lt;font color=#ccffff&gt;10&lt;/font&gt;.</content>
+	<content contentuid="he88bce97gb1ddg43d0g85a5g898a6a007020">Gives you the ability to enchant equipment, change wand/staff element and add sockets. Also reflects knowledge about enchantments.&lt;br&gt;See the rule sheet for detailed crafting rules.</content>
+	<content contentuid="hec566710g3d6bg44f0gb1b7g21eeb808bf79">Aptitudes</content>
+	<content contentuid="heeedc921g2da7g4ebcg8e61g9ed44ce375be">Gives you the ability to craft belts, Finesse and Intelligence equipment and enhance it. Also reflects knowledge about clothing history, such as recognizing people or factions and emblems.&lt;br&gt;See the rule sheet for detailed crafting rules.</content>
+	<content contentuid="hf3b494e8g7273g4e9eg95aegf17d0c8b6dee">Best used for bartering, catching people attention, charm and generate emotions.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Endurance.&lt;/font&gt;</content>
+	<content contentuid="hf94bfe8dg5c89g4078g97d9g1e2970bd8c0d">Perception</content>
+	<content contentuid="hfba154a1g2129g4cecga10dga3e1dfe8f560">&lt;font color=&quot;#0000ff&quot;&gt;Mind&lt;/font&gt;</content>
+	<content contentuid="hfd1bc520gb55cg48b9gb238g8ff81b7ad152">Best used to attempt reading someones emotions.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Perception.&lt;/font&gt;</content>
+</contentList>

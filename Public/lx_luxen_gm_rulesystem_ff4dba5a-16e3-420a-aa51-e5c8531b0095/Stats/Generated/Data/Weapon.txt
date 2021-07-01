@@ -1,0 +1,9 @@
+new entry "TEN_Damage_HollowPool"
+type "Weapon"
+data "ModifierType" "Item"
+data "Damage Type" "Shadow"
+data "Damage" "1"
+data "Damage Range" "5"
+data "DamageFromBase" "35"
+data "Charges" "0"
+

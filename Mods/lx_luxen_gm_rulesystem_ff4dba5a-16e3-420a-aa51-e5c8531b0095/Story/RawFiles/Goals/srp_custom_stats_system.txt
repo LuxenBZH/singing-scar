@@ -1,0 +1,149 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// IF
+// GameStarted(_, _)
+// THEN
+// LX_EXT_CheckStatsPresence();
+//TimerLaunch("LX_Check_Custom_Stats", 10000);
+
+// IF
+// TimerFinished("LX_Check_Custom_Stats")
+// AND
+// DB_IsPlayer(_Player)
+// THEN
+// CharacterLaunchIteratorAroundObject(_Player, 30.0, "LX_Put_Custom_Stats_Bonus");
+// TimerLaunch("LX_Check_Custom_Stats", 10000);
+
+// IF
+// StoryEvent(_Char, "LX_Put_Custom_Stats_Bonus")
+// AND
+// LX_EXT_StatsChangeCheck((CHARACTERGUID)_Char)
+// THEN
+// LX_EXT_ManageCustomStatsBonus(_Char);
+
+//Death resist
+// IF
+// NRD_OnStatusAttempt((CHARACTERGUID)_Target, "DYING", _Handle, (CHARACTERGUID)_Instigator)
+// AND
+// HasActiveStatus(_Target, "UNCONSCIOUS", 0)
+// THEN
+// LX_EXT_ManageDeath(_Target, _Handle, _Instigator);
+
+// PROC
+// PROC_SRP_CleanTaggedDeathResist((CHARACTERGUID)_Instigator, (CHARACTERGUID)_Target)
+// AND
+// CharacterIsInCombat(_Instigator, 0)
+// AND
+// CharacterIsInCombat(_Target, 0)
+// THEN
+// DB_SRP_CleanDeathResist(_Instigator, _Target);
+// TimerLaunch("SRP_CleanDeathResistTag", 100);
+
+// IF
+// TimerFinished("SRP_CleanDeathResistTag")
+// AND
+// DB_SRP_CleanDeathResist(_Instigator, _Target)
+// THEN
+// NOT DB_SRP_TaggedDeathResist(_Instigator, _Target);
+// NOT DB_SRP_TaggedCheatDeathResist(_Instigator, _Target);
+// NOT DB_SRP_CleanDeathResist(_Instigator, _Target);
+
+// //Careful
+// IF
+// NRD_OnHit((GUIDSTRING)_Target, (GUIDSTRING)_Instigator, _Damage, _Handle)
+// AND
+// ObjectIsCharacter(_Target, 1)
+// AND
+// ObjectIsCharacter(_Instigator, 1)
+// AND
+// HasActiveStatus(_Instigator, "SRP_AVOIDDEATH", 1)
+// THEN
+// DB_SRP_TaggedDeathResist(_Instigator, _Target);
+// PROC_SRP_CleanTaggedDeathResist((CHARACTERGUID)_Instigator, (CHARACTERGUID)_Target);
+
+// IF
+// ObjectTurnEnded(_Char)
+// AND
+// DB_SRP_TaggedDeathResist(_Char, _)
+// THEN
+// LX_EXT_CleanTaggedDeath((CHARACTERGUID)_Char);
+
+// IF
+// NRD_OnHit((GUIDSTRING)_Target, (GUIDSTRING)_Instigator, _Damage, _Handle)
+// AND
+// ObjectIsCharacter(_Target, 1)
+// AND
+// ObjectIsCharacter(_Instigator, 1)
+// AND
+// HasActiveStatus(_Instigator, "SRP_CAREFULBLOWS", 1)
+// THEN
+// DB_SRP_TaggedCheatDeathResist(_Instigator, _Target);
+// PROC_SRP_CleanTaggedDeathResist((CHARACTERGUID)_Instigator, (CHARACTERGUID)_Target);
+
+
+
+
+// IF
+// ObjectTurnEnded(_Char)
+// AND
+// DB_SRP_TaggedCheatDeathResist(_Char, _)
+// THEN
+// LX_EXT_CleanTaggedDeath((CHARACTERGUID)_Char);
+
+IF
+NRD_OnHit(_,_,_,_)
+THEN
+DB_NOOP(1);
+
+//Unconscious recover
+// IF
+// NRD_OnHeal(_Target, _Instigator, _Amount, _Handle)
+// AND
+// HasActiveStatus(_Target, "UNCONSCIOUS", 1)
+// THEN
+// LX_EXT_ManageUnconsciousRecover(_Target, _Amount);
+
+//Values identification
+// IF
+// CombatStarted(_CombatID)
+// THEN
+// LX_EXT_ManageValueIdentification(_CombatID);
+
+//UI Custom stat refresh timer
+// IF
+// StoryEvent((CHARACTERGUID)_Char, "SRP_CustomStatCheckTimerStart")
+// THEN
+// DB_SRP_StatCheck(_Char);
+// TimerLaunch("SRP_CustomStatCheckTimerOver", 200);
+
+// IF
+// TimerFinished("SRP_CustomStatCheckTimerOver")
+// AND
+// DB_SRP_StatCheck((CHARACTERGUID)_Char)
+// THEN
+// NOT DB_SRP_StatCheck(_Char);
+// LX_EXT_MakeStatCheck(_Char);
+
+//EXIM Support
+// IF
+// StoryEvent((CHARACTERGUID)_Char, "LX_Save_Character")
+// THEN
+// LX_EXT_SaveCustomStats(_Char);
+
+// IF
+// StoryEvent((CHARACTERGUID)_Char, "LX_EXIM_LoadExtData")
+// THEN
+// LX_EXT_LoadCustomStats(_Char);
+
+//Testing
+// IF
+// CharacterStatusApplied(_Char, "HASTED", _)
+// THEN
+// LX_EXT_Testing(_Char);
+
+EXITSECTION
+
+ENDEXITSECTION

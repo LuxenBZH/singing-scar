@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="d3bd35ae-af62-42a2-b365-7091f909246b">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_EnergyBlast" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillAbility" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Range" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Angle" type="IntegerStatObjectFieldDefinition" value="120" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="Death Type" />
+        <field name="SurfaceType" type="EnumerationStatObjectFieldDefinition" value="75" enumeration_type_name="Surface Type" />
+        <field name="IgnoreCursed" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="SurfaceStatusChance" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="SurfaceGrowStep" type="IntegerStatObjectFieldDefinition" value="50" />
+        <field name="SurfaceGrowInterval" type="IntegerStatObjectFieldDefinition" value="50" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="skill_energyblast" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Energy Blast" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Shove targets with a blast of Tenebrium, pushing them 4 meters and dealing [1]." />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_winterbreath_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_winterbreath_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Tenebrium_Prepare_Divine_Shout_Root_01,KeepRot:Dummy_Root;RS3_FX_Skills_Tenebrium_Prepare_Hands_01:Dummy_R_HandFX;RS3_FX_Skills_Tenebrium_Prepare_Hands_01:Dummy_L_HandFX" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_beam_air_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Tenebrium_ShadowBolt_Cast_Hand_01:Dummy_R_HandFX;RS3_FX_Skills_Tenebrium_Blast_Cast_01:Dummy_CastFX:cast" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="PushDistance" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
+        <field name="BackStart" type="IntegerStatObjectFieldDefinition" value="50" />
+        <field name="FrontOffset" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="75" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="20" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Damage Type" />
+        <field name="Damage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="DamageSourceType" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag SRP_TE15" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="Sourcery 2" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

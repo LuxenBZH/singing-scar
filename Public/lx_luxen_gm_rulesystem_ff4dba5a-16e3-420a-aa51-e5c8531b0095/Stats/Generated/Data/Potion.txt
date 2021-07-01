@@ -1,0 +1,55 @@
+new entry "Stats_SRP_AvoidDeath"
+type "Potion"
+data "DamageBoost" "-30"
+data "CriticalChance" "-100"
+
+new entry "Stats_SRP_Fatigue"
+type "Potion"
+data "Initiative" "-1"
+data "AccuracyBoost" "-5"
+data "DodgeBoost" "-5"
+data "DamageBoost" "-10"
+
+new entry "Stats_SRP_MovingInvis"
+type "Potion"
+
+new entry "SRP_Potion_Base"
+type "Potion"
+
+new entry "Stats_SRP_NightVision"
+type "Potion"
+data "Sight" "-750"
+
+new entry "Stats_TEN_DarkFocus"
+type "Potion"
+data "Intelligence" "1.5"
+data "Wits" "-1"
+data "AccuracyBoost" "50"
+
+new entry "Stats_TEN_HollowPool"
+type "Potion"
+data "MovementSpeedBoost" "-80"
+
+new entry "Stats_TEN_Overcharge1"
+type "Potion"
+data "MovementSpeedBoost" "35"
+
+new entry "Stats_TEN_Overcharge2"
+type "Potion"
+data "PainReflection" "3"
+data "MovementSpeedBoost" "35"
+
+new entry "Stats_TEN_Overcharge3"
+type "Potion"
+data "PainReflection" "3"
+data "AccuracyBoost" "15"
+data "DodgeBoost" "15"
+
+new entry "Stats_TEN_Overcharge4"
+type "Potion"
+data "PainReflection" "3"
+data "AccuracyBoost" "15"
+data "DodgeBoost" "15"
+data "APStart" "1"
+data "APRecovery" "1"
+

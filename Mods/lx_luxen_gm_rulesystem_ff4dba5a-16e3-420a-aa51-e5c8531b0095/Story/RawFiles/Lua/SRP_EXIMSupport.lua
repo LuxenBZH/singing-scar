@@ -1,0 +1,58 @@
+-- function SaveCustomStats(character)
+--     Ext.Print("Saving custom stats...")
+-- 	local customStats = {
+--         Endurance = 0,
+--         Willpower = 0,
+--         Mind = 0,
+--         Perception = 0,
+--         Agility = 0,
+--         Body = 0,
+--         Might = 0,
+--         Charisma = 0,
+--         Manipulation = 0,
+--         Suasion = 0,
+--         Intimidation = 0,
+--         Insight = 0,
+--         Intuition = 0,
+--         Alchemist = 0,
+--         Blacksmith = 0,
+--         Tailoring = 0,
+--         Enchanter = 0,
+--         Survivalist = 0,
+--         Medicine = 0,
+--         Magic = 0,
+--         Academics = 0,
+--         ['Soul points'] = 0,
+--         ['Fortune point'] = 0,
+--         ['Body condition'] = 0,
+--         ['Tenebrium infusion'] = 0
+--         }
+--     for stat,value in pairs(customStats) do
+--         value = GetCustomStatPoints(character, stat)
+--         customStats[stat] = value
+--         Ext.Print(stat, value)
+--     end
+--     customStats = Ext.JsonStringify(customStats)
+--     local extensionData = GetVarString(character, "LX_EXIM_Extension_Data")
+--     if extensionData ~= nil then
+--         extensionData = Ext.JsonParse(extensionData)
+--     else
+--         extensionData = {}
+--     end
+--     extensionData["SRP_stats"] = customStats
+--     extensionData = Ext.JsonStringify(extensionData)
+--     SetVarString(character, "LX_EXIM_Extension_Data", extensionData)
+-- end
+
+-- function LoadCustomStats(character)
+--     Ext.Print("Loading custom stats...")
+--     local extensionData = GetVarString(character, "LX_EXIM_Extension_Data")
+--     if extensionData == nil then return end
+--     extensionData = Ext.JsonParse(extensionData)
+--     for stat,value in pairs(extensionData["SRP_stats"]) do
+--         SetCustomStatPoints(character, stat, value)
+--     end
+-- end
+
+-- Ext.NewCall(SaveCustomStats, "LX_EXT_SaveCustomStats", "(CHARACTERGUID)_Character")
+-- Ext.NewCall(LoadCustomStats, "LX_EXT_LoadCustomStats", "(CHARACTERGUID)_Character")

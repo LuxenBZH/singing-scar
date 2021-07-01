@@ -1,0 +1,16 @@
+key "SRP_AptitudeBaseCap","10"
+
+key "SRP_AptitudeBasePoints","15"
+
+key "SRP_SocialBaseCap","5"
+
+key "SRP_SocialHardCap","10"
+
+key "SRP_SocialBasePoints","15"
+
+key "SRP_KnowledgeBaseCap","5"
+
+key "SRP_KnowledgeHardCap","10"
+
+key "SRP_KnowledgeBasePoints","12"
+

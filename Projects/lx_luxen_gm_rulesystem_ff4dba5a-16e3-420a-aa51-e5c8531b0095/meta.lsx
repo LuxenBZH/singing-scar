@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="6" build="0" />
+    <region id="MetaData">
+        <node id="root">
+            <attribute id="Module" value="ff4dba5a-16e3-420a-aa51-e5c8531b0095" type="23" />
+            <attribute id="Name" value="lx_luxen_gm_rulesystem" type="23" />
+            <attribute id="Type" value="Add-on" type="23" />
+            <attribute id="UUID" value="f07225a4-7e8e-46b6-b166-3d0391ccf479" type="23" />
+        </node>
+    </region>
+</save>

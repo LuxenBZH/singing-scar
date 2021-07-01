@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="43178832-7920-4a69-8b7e-bcebc518c388">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_AptitudeBaseCap" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_AptitudeBasePoints" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="15" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_SocialBaseCap" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_SocialHardCap" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_SocialBasePoints" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="15" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_KnowledgeBaseCap" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_KnowledgeHardCap" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SRP_KnowledgeBasePoints" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="12" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

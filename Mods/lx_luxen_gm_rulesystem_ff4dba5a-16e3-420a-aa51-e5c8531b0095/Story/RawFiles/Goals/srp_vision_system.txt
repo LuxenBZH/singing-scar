@@ -1,0 +1,245 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+////////////////////
+// Initialization //
+////////////////////
+IF
+CharacterCreationStarted(_Level)
+THEN
+CharacterLaunchOsirisOnlyIterator("CreationLevel");
+
+IF
+StoryEvent((CHARACTERGUID)_Char, "CreationLevel")
+THEN
+RemoveStatus(_Char, "DEACTIVATED");
+
+IF
+GameStarted(_Level, _)
+AND
+IsCharacterCreationLevel(_Level, 0)
+THEN
+CharacterLaunchOsirisOnlyIterator("ViewInit");
+
+IF
+SavegameLoaded(_, _, _, _)
+THEN
+CharacterLaunchOsirisOnlyIterator("ViewInit");
+
+IF
+StoryEvent((CHARACTERGUID)_Char, "ViewInit")
+AND
+NOT GV_QRY_PlayerCanSee((CHARACTERGUID)_Char)
+AND
+CharacterIsPlayer(_Char, 0)
+AND
+HasActiveStatus(_Char, "SRP_VLOCK", 0)
+THEN
+//SetVisible(_Char, 0);
+ApplyStatus(_Char, "DEACTIVATED", -1.0, 0);
+
+
+///////////////////////////////////////////////////
+// Visibility of players over NPCs by themselves //
+///////////////////////////////////////////////////
+
+// Losing sight
+IF
+CharacterLostSightOfCharacter(_, _Npc)
+AND
+NOT GV_QRY_PlayerCanSee(_Npc)
+AND
+CharacterIsPlayer(_Npc, 0)
+AND
+CharacterIsInCombat(_Npc, 0)
+AND
+NOT QRY_GM_Has_Moving_Status(_Npc)
+AND
+HasActiveStatus(_Npc, "SRP_VLOCK", 0)
+THEN
+//SetVisible(_Npc, 0);
+ApplyStatus(_Npc, "DEACTIVATED", -1.0, 1);
+
+// Getting sight
+IF
+CharacterSawCharacter(_Player, _Npc)
+//DB_Sees(_Player, _Npc)
+AND
+CharacterIsPlayer((CHARACTERGUID)_Player, 1)
+AND
+CharacterIsPlayer((CHARACTERGUID)_Npc, 0)
+AND
+HasActiveStatus(_Npc, "SRP_VLOCK", 0)
+THEN
+//SetVisible(_Npc, 1);
+RemoveStatus(_Npc, "DEACTIVATED");
+
+QRY
+GV_QRY_PlayerCanSee((CHARACTERGUID)_Npc)
+AND
+DB_IsPlayer(_Player)
+AND
+DB_Sees(_Player, _Npc)
+THEN
+DB_NOOP(1);
+
+///////////////////////////////////////////
+// Custom invicibility from deactivation //
+///////////////////////////////////////////
+
+IF
+CharacterStatusApplied(_Char, "DEACTIVATED", _Cause)
+THEN
+SetInvulnerable_UseProcSetInvulnerable((GUIDSTRING)_Char, 1);
+
+IF
+CharacterStatusRemoved(_Char, "DEACTIVATED", _Cause)
+THEN
+SetInvulnerable_UseProcSetInvulnerable((GUIDSTRING)_Char, 0);
+
+//////////////////////////////////////////
+// Visibility of NPCs from mass control //
+//////////////////////////////////////////
+QRY
+QRY_GM_Has_Moving_Status((CHARACTERGUID)_Char)
+AND
+HasActiveStatus(_Char, "GM_PATROLING", 1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_GM_Has_Moving_Status((CHARACTERGUID)_Char)
+AND
+HasActiveStatus(_Char, "GM_MOVING", 1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_GM_Has_Moving_Status((CHARACTERGUID)_Char)
+AND
+HasActiveStatus(_Char, "GM_FOLLOW", 1)
+THEN
+DB_NOOP(1);
+
+// Set visibilty when moving, patroling or following
+IF
+CharacterStatusApplied(_Npc, "SRP_MOVINGINVIS", _Cause)
+THEN
+SetVisible(_Npc, 0);
+
+IF
+CharacterStatusRemoved(_Npc, "SRP_MOVINGINVIS", _Cause)
+THEN
+SetVisible(_Npc, 1);
+
+IF
+StoryEvent((CHARACTERGUID)_Npc, "Check Player Visibility")
+AND
+DB_IsPlayer(_Player)
+AND
+NOT GV_QRY_PlayerCanSee(_Npc)
+//AND
+//NOT QRY_GM_Has_Moving_Status(_Npc)
+THEN
+ApplyStatus(_Npc, "DEACTIVATED", -1.0, 1);
+
+
+IF
+CharacterLostSightOfCharacter(_Player, _Npc)
+AND
+QRY_GM_Has_Moving_Status(_Npc)
+AND
+CharacterIsPlayer(_Player, 1)
+AND
+NOT GV_QRY_PlayerCanSee(_Npc)
+THEN
+ApplyStatus(_Npc, "SRP_MOVINGINVIS", -1.0, 1);
+
+IF
+CharacterSawCharacter(_Player, _Npc)
+AND
+HasActiveStatus(_Npc, "SRP_MOVINGINVIS", 1)
+AND
+CharacterIsPlayer(_Player, 1)
+THEN
+RemoveStatus(_Npc, "SRP_MOVINGINVIS");
+
+IF
+CharacterStatusRemoved(_Npc, "GM_MOVING", _Cause)
+THEN
+RemoveStatus(_Npc, "SRP_MOVINGINVIS");
+CharacterPurgeQueue(_Npc);
+SetStoryEvent(_Npc, "Check Player Visibility");
+
+IF
+CharacterStatusRemoved(_Npc, "GM_PATROLING", _Cause)
+THEN
+RemoveStatus(_Npc, "SRP_MOVINGINVIS");
+CharacterPurgeQueue(_Npc);
+SetStoryEvent(_Npc, "Check Player Visibility");
+
+IF
+CharacterStatusRemoved(_Npc, "GM_FOLLOW", _Cause)
+THEN
+RemoveStatus(_Npc, "SRP_MOVINGINVIS");
+CharacterPurgeQueue(_Npc);
+SetStoryEvent(_Npc, "Check Player Visibility");
+
+IF
+CharacterStatusApplied(_Npc, "GM_MOVING", _Cause)
+AND
+NOT GV_QRY_PlayerCanSee(_Npc)
+THEN
+ApplyStatus(_Npc, "SRP_MOVINGINVIS", -1.0, 1);
+
+IF
+CharacterStatusApplied(_Npc, "GM_PATROLING", _Cause)
+AND
+NOT GV_QRY_PlayerCanSee(_Npc)
+THEN
+ApplyStatus(_Npc, "SRP_MOVINGINVIS", -1.0, 1);
+
+IF
+CharacterStatusApplied(_Npc, "GM_FOLLOW", _Cause)
+AND
+NOT GV_QRY_PlayerCanSee(_Npc)
+THEN
+ApplyStatus(_Npc, "SRP_MOVINGINVIS", -1.0, 1);
+
+
+///////////////////////
+// Combat visibility //
+///////////////////////
+IF
+ObjectEnteredCombat(_Char, _CombatID)
+AND
+ObjectIsCharacter(_Char, 1)
+//AND
+//CharacterIsPlayer((CHARACTERGUID)_Player, 1)
+THEN
+//SetVisible(_Char, 1);
+CharacterLaunchIteratorAroundObject(_Char, 25.0, "CombatInit");
+
+IF
+StoryEvent((CHARACTERGUID)_Char, "CombatInit")
+AND
+CharacterIsPlayer(_Char, 0)
+AND
+HasActiveStatus(_Char, "SRP_VLOCK", 0)
+AND
+HasActiveStatus(_Char, "DEACTIVATED", 1)
+THEN
+RemoveStatus(_Char, "DEACTIVATED");
+
+IF
+ObjectLeftCombat(_Char, _)
+AND
+ObjectIsCharacter(_Char, 1)
+THEN
+CharacterLaunchIteratorAroundObject(_Char, 25.0, "SRP_CombatClear");
+
+EXITSECTION
+
+ENDEXITSECTION
