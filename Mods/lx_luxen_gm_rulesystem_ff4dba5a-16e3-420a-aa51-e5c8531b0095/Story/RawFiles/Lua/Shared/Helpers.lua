@@ -200,7 +200,7 @@ local socialScaling = {
     ["10"] = 4,
 }
 
-local tnCalc = {
+tnCalc = {
     -- Aptitudes
     Endurance = {Endurance = aptitudesScaling},
     Mind = {Mind = aptitudesScaling},

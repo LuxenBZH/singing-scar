@@ -1,6 +1,6 @@
 UI = Mods.LeaderLib.UI
 
-local function OpenRollMessageBox(rollType, stat, characterNetID)
+local function OpenRollMessageBox(rollType, stat, characterNetID, title, message)
     local ui = Ext.GetBuiltinUI("Public/Game/GUI/msgBox.swf")
     if ui and stat then
         ui:Hide()
@@ -25,11 +25,11 @@ local function OpenRollMessageBox(rollType, stat, characterNetID)
         local infos = {
             character = characterNetID,
             stat = stat.ID,
-            type = rollType
+            rollType = rollType
         }
         ui:Invoke("setTooltip", 1, Ext.JsonStringify(infos))
         -- root.currentDevice = characterNetID
-        ui:Invoke("showPopup", "Roll your fate!", "Roll for "..Ext.GetTranslatedStringFromKey(stat.DisplayName).."<br>".."Enter a modifier (e.g. 5 for +5, -2 for -2)<br>")
+        ui:Invoke("showPopup", title, message.."<br>".."Enter a modifier (e.g. 5 for +5, -2 for -2)<br>")
         -- root.showMsgbox()
         ui:Show()
         -- specialMessageBoxOpen = true
@@ -54,7 +54,8 @@ local function ManageAnswer(ui, call, buttonID, device)
 end
 
 UI.ContextMenu.Register.ShouldOpenListener(function(contextMenu, x, y)
-    if Game.Tooltip.LastRequestTypeEquals("CustomStat") and Game.Tooltip.IsOpen() then
+    local request = Game.Tooltip.GetCurrentOrLastRequest()
+    if Game.Tooltip.LastRequestTypeEquals("CustomStat") and Game.Tooltip.IsOpen() and tnCalc[request.StatData.ID] then
         -- or if Game.Tooltip.RequestTypeEquals("CustomStat")
         return true
     end
@@ -72,10 +73,25 @@ UI.ContextMenu.Register.OpeningListener(function(contextMenu, x, y)
             modId = request.StatData.Mod
             statId = request.StatData.ID
         end
-        contextMenu:AddEntry("RollCustomStat", function(cMenu, ui, id, actionID, handle)
-            -- CustomStatSystem:RequestStatChange(statId, characterId, Ext.Random(1,10), modId)
-            OpenRollMessageBox("RollNormal", statData, characterId)
-        end, "<font color='#33AA33'>Roll</font>")
+        if tnCalc[statId] then
+            contextMenu:AddEntry("RollCustomStat", function(cMenu, ui, id, actionID, handle)
+                OpenRollMessageBox("RollNormal", statData, characterId, "Roll your fate!", "Roll for "..Ext.GetTranslatedStringFromKey(statData.DisplayName).." (d100, lower the better)")
+            end, "Roll")
+        end
+        if statId == "Blacksmith" or statId == "Tailoring" or statId == "Enchanter" then
+            contextMenu:AddEntry("RollCraft", function(cMenu, ui, id, actionID, handle)
+                OpenRollMessageBox("RollCraft", statData, characterId, "Crafting roll", "Roll to craft (d20, higher the better)")
+            end, "<font color='#b3e6ff'>Craft</font>")
+        end
+        if statId == "Survivalist" then
+            contextMenu:AddEntry("RollSleep", function(cMenu, ui, id, actionID, handle)
+                OpenRollMessageBox("RollSleep", statData, characterId, "Resting roll", "Roll for rest (d20, higher the better)")
+            end, "<font color='#33AA33'>Rest</font>")
+        elseif statId == "Alchemist" then
+            contextMenu:AddEntry("RollAlchemist", function(cMenu, ui, id, actionID, handle)
+                OpenRollMessageBox("RollAlchemist", statData, characterId, "Look for ingredients", "Roll to search ingredients (d100)")
+            end, "<font color='#33AA33'>Look for ingredients</font>")
+        end
     end
 end)
 
@@ -86,8 +102,14 @@ end
 
 Ext.RegisterListener("SessionLoaded", RegisterUIListeners_SheetRoll)
 
--- CombatLog = Mods.LeaderLib.CombatLog
--- Ext.RegisterListener("SessionLoaded", function()
---     local rollingText = Ext.GetTranslatedString("he38e2e7bg72dbg4477g86f9ga1fedc4f6750", "Dice Rolls")
---     CombatLog:AddFilter("Rolls", rollingText.Value, nil, 3)
--- end)
+CombatLog = Mods.LeaderLib.CombatLog
+Ext.RegisterListener("SessionLoaded", function()
+    local rollingText = "Singing Scar rolls"
+    CombatLog.AddFilter("SSRolls", rollingText, Ext.IsDeveloperMode() or nil, 3)
+end)
+
+if Ext.IsDeveloperMode() then
+    RegisterListener("BeforeLuaReset", function()
+        CombatLog.RemoveFilter("SSRolls")
+    end)
+end

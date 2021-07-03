@@ -108,28 +108,55 @@ Ext.RegisterNetListener("SRP_Roll", function(channel, payload, ...)
     local infos = Ext.JsonParse(payload)
     local character = Ext.GetCharacter(tonumber(infos.character))
     local stat = CustomStatSystem:GetStatByID(infos.stat, SScarID)
-    if infos.type == "RollNormal" then
-        local tn = GetTargetNumber(character, stat)
-        local text = "Rolling "..Ext.GetTranslatedStringFromKey(stat.DisplayName)
+    local tn = GetTargetNumber(character, stat)
+    local text = "Rolling "..Ext.GetTranslatedStringFromKey(stat.DisplayName).." (d100)"
+    local result = 0
+    if infos.rollType == "RollNormal" or infos.rollType == "RollAlchemist" then
+        if infos.rollType == "RollAlchemist" then
+            text = "Ingredient search"
+        end
         if infos.mod ~= 0 then
             text = text.."<br>Modifier: "..ColourModifier(infos.mod, true)
         end
-        local result = math.random(1,100) + tonumber(infos.mod)
-        CharacterStatusText(character.MyGuid, text)
-        -- PersistentVars.CurrentRolls[#PersistentVars.CurrentRolls + 1] = {character.MyGuid, tn, result, success}
-        Timer.StartOneshot("SRP_RollStat", 2000, function()
-            -- Ext.Print(result, tn)
-            if result < tn then
-                CharacterStatusText(character.MyGuid, "<font color=#33cc33>Success!</font><br>You rolled: "..tostring(result))
-                CombatLog.AddTextToHost("Rolls", character.DisplayName.." rolled "..result.." ("..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and succeeded.")
-                CombatLog.AddTextToAllPlayers("Rolls", character.DisplayName.." rolled "..result.." ("..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and succeeded.")
+        result = math.random(1, 100)
+    elseif infos.rollType == "RollCraft" or infos.rollType == "RollSleep" then
+        if infos.rollType == "RollSleep" then
+            text = "Rolling Rest (d20)"
+        end
+        if infos.mod ~= 0 then
+            text = text.."<br>Modifier: "..ColourModifier(infos.mod, false)
+        end
+        result = math.random(1, 20)
+    end
+    CharacterStatusText(character.MyGuid, text)
+    local modSign = ""
+    if tonumber(infos.mod) > 0 then
+        modSign = "+"..infos.mod
+    elseif infos.mod < 0 then
+        modSign = infos.mod
+    end
+    -- PersistentVars.CurrentRolls[#PersistentVars.CurrentRolls + 1] = {character.MyGuid, tn, result, success}
+    Timer.StartOneshot("SRP_RollStat", 2000, function()
+        -- Ext.Print(result, tn)
+        if infos.rollType == "RollNormal" or infos.rollType == "RollAlchemist" then
+            if result + tonumber(infos.mod) < tn then
+                CharacterStatusText(character.MyGuid, "<font color=#33cc33>Success!</font><br>You rolled: "..tostring(result + tonumber(infos.mod)))
+                CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d100: "..result..modSign..", "..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and succeeded.")
                 PlayEffect(character.MyGuid, "RS3_FX_Overhead_Dice_Green", "Dummy_OverheadFX")
             else
-                CharacterStatusText(character.MyGuid, "<font color=#ff0000>Failure!</font><br>You rolled: "..tostring(result))
-                CombatLog.AddTextToHost("Rolls", character.DisplayName.." rolled "..result.." ("..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and failed.")
-                CombatLog.AddTextToAllPlayers("Rolls", character.DisplayName.." rolled "..result.." ("..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and succeeded.")
+                CharacterStatusText(character.MyGuid, "<font color=#ff0000>Failure!</font><br>You rolled: "..tostring(result + tonumber(infos.mod)))
+                CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d100: "..result..modSign..", "..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and failed.")
                 PlayEffect(character.MyGuid, "RS3_FX_Overhead_Dice_Red", "Dummy_OverheadFX")
             end
-        end)
-    end
+        else
+            CharacterStatusText(character.MyGuid, "You rolled: "..tostring(result + tonumber(infos.mod)))
+            local rollType = ""
+            if infos.rollType == "RollSleep" then
+                rollType = "Rest based on "
+            elseif infos.rollType == "RollCraft" then
+                rollType = "Crafting based on "
+            end
+            CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d20: "..result..modSign..", "..rollType..Ext.GetTranslatedStringFromKey(stat.DisplayName)..")")
+        end
+    end)
 end)
