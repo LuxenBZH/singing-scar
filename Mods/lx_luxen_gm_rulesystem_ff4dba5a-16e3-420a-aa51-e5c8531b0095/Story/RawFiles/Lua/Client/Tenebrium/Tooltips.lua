@@ -63,12 +63,17 @@ end
 Ext.RegisterListener("SessionLoaded", SRP_InitTenebriumClientListeners)
 
 local isTenebriumInfusionTooltip
+local isTenebriumEnergyTooltip
 --Captures when the characterSheet Light Resistance tooltip is trying to be served to the client and serves the FireResistance tooltip instead.
 ---@param ui UIObject
 ---@param call string
 ---@param statId number
 local function ShowTenebriumInfusionTooltip(ui, call, statId, arg, x, y, ...)
     if statId == 101.0 then
+        isTenebriumEnergyTooltip = true
+        ui:ExternalInterfaceCall("showStatTooltip", 33.0, arg+30, 1500, 500, ...)
+    end
+    if statId == 102.0 then
         isTenebriumInfusionTooltip = true
         ui:ExternalInterfaceCall("showStatTooltip", 33.0, arg+30, 1500, 500, ...)
     end
@@ -126,9 +131,10 @@ local function OnStatTooltip(character, stat, tooltip)
             })
         end
         isTenebriumInfusionTooltip = false
-    elseif stat == "UNKNOWN STAT" then
+    elseif stat == "UNKNOWN STAT" and isTenebriumEnergyTooltip then
         tooltip:GetElement("StatName").Label = "Tenebrium Energy"
         statsDescription.Label = "How active is the Tenebrium Infusion. Increase with missed and resisted attacks, by receiving a critical hit or when being incapacitated. The stronger the infusion is, the more energy it will generate. If you leave a combat while your energy value is above your infusion value, the infusion might increase."
+        isTenebriumEnergyTooltip = false
     end
 end
 

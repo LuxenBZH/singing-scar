@@ -107,9 +107,9 @@ local function AddCustomInfo(ui, ...)
     local char = Ext.GetCharacter(Ext.DoubleToHandle(charHandle))
     local te = CustomStatSystem:GetStatByID("TenebriumEnergy", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(char)
     local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(char)
-    AddToSecStatArray(sheet:GetRoot().secStat_array, 0, "T. Energy", tostring(te).."/100", "", 4, 33)
+    AddToSecStatArray(sheet:GetRoot().secStat_array, 0, "T. Energy", tostring(te).."/100", "", 4, 101)
     AddToSecStatArray(sheet:GetRoot().secStat_array, 4, "", "", "", 0, 99)
-    AddToSecStatArray(sheet:GetRoot().secStat_array, 0, "T. Infusion", tostring(ti).."%", "", 0, 101)
+    AddToSecStatArray(sheet:GetRoot().secStat_array, 0, "T. Infusion", tostring(ti).."%", "", 0, 102)
 end
 
 local function TEN_SetupUI()

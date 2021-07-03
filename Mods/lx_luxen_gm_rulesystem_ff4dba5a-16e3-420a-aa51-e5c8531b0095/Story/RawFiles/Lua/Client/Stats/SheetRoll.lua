@@ -55,8 +55,11 @@ end
 
 UI.ContextMenu.Register.ShouldOpenListener(function(contextMenu, x, y)
     local request = Game.Tooltip.GetCurrentOrLastRequest()
+    Ext.Dump(request)
     if Game.Tooltip.LastRequestTypeEquals("CustomStat") and Game.Tooltip.IsOpen() and tnCalc[request.StatData.ID] then
         -- or if Game.Tooltip.RequestTypeEquals("CustomStat")
+        return true
+    elseif Game.Tooltip.LastRequestTypeEquals("Stat") and Game.Tooltip.IsOpen() and request.Stat == 102.0 then
         return true
     end
 end)
@@ -79,18 +82,35 @@ UI.ContextMenu.Register.OpeningListener(function(contextMenu, x, y)
             end, "Roll")
         end
         if statId == "Blacksmith" or statId == "Tailoring" or statId == "Enchanter" then
-            contextMenu:AddEntry("RollCraft", function(cMenu, ui, id, actionID, handle)
-                OpenRollMessageBox("RollCraft", statData, characterId, "Crafting roll", "Roll to craft (d20, higher the better)")
-            end, "<font color='#b3e6ff'>Craft</font>")
+            if CustomStatSystem:GetStatByID(statId):GetValue(characterId) > 0 then
+                contextMenu:AddEntry("RollCraft", function(cMenu, ui, id, actionID, handle)
+                    OpenRollMessageBox("RollCraft", statData, characterId, "Crafting roll", "Roll to craft (d20, higher the better)")
+                end, "<font color='#b3e6ff'>Craft</font>")
+            end
         end
         if statId == "Survivalist" then
             contextMenu:AddEntry("RollSleep", function(cMenu, ui, id, actionID, handle)
                 OpenRollMessageBox("RollSleep", statData, characterId, "Resting roll", "Roll for rest (d20, higher the better)")
             end, "<font color='#33AA33'>Rest</font>")
-        elseif statId == "Alchemist" then
+        elseif statId == "Alchemist" and CustomStatSystem:GetStatByID(statId):GetValue(characterId) > 0 then
             contextMenu:AddEntry("RollAlchemist", function(cMenu, ui, id, actionID, handle)
                 OpenRollMessageBox("RollAlchemist", statData, characterId, "Look for ingredients", "Roll to search ingredients (d100)")
             end, "<font color='#33AA33'>Look for ingredients</font>")
+        end
+    elseif Game.Tooltip.RequestTypeEquals("Stat") and Game.Tooltip.IsOpen() then
+        local request = Game.Tooltip.GetCurrentOrLastRequest()
+        local statID = request.Stat
+        local characterId = request.Character.NetID
+        local statData = {
+            ID = "TenebriumInfusion"
+        }
+        if statID == 102.0 then
+            contextMenu:AddEntry("RollNormal", function(cMenu, ui, id, actionID, handle)
+                OpenRollMessageBox("RollNormal", statData, characterId, "Roll against the Tenebrium!", "Roll for Tenebrium Infusion (d100, lower the better)")
+            end, "Roll")
+            contextMenu:AddEntry("RollObscura", function(cMenu, ui, id, actionID, handle)
+                OpenRollMessageBox("RollObscura", statData, characterId, "Use the Obscura...", "Roll for Obscura (d6, result is added to Tenebrium Infusion)")
+            end, "<font color=#cc00cc>Obscura</font>")
         end
     end
 end)

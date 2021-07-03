@@ -127,6 +127,13 @@ Ext.RegisterNetListener("SRP_Roll", function(channel, payload, ...)
             text = text.."<br>Modifier: "..ColourModifier(infos.mod, false)
         end
         result = math.random(1, 20)
+    elseif infos.rollType == "RollObscura" then
+        text = "Rolling Obscura (d6)"
+        if stat:GetValue(character) > 40 then
+            text = text.."<br>Modifier: "..ColourModifier(1, true)
+            infos.mod = 1
+        end
+        result = math.random(1, 6)
     end
     CharacterStatusText(character.MyGuid, text)
     local modSign = ""
@@ -141,13 +148,17 @@ Ext.RegisterNetListener("SRP_Roll", function(channel, payload, ...)
         if infos.rollType == "RollNormal" or infos.rollType == "RollAlchemist" then
             if result + tonumber(infos.mod) < tn then
                 CharacterStatusText(character.MyGuid, "<font color=#33cc33>Success!</font><br>You rolled: "..tostring(result + tonumber(infos.mod)))
-                CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d100: "..result..modSign..", "..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and succeeded.")
+                CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d100: "..result..modSign..", "..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and <font color=#33cc33>succeeded</font>.")
                 PlayEffect(character.MyGuid, "RS3_FX_Overhead_Dice_Green", "Dummy_OverheadFX")
             else
                 CharacterStatusText(character.MyGuid, "<font color=#ff0000>Failure!</font><br>You rolled: "..tostring(result + tonumber(infos.mod)))
-                CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d100: "..result..modSign..", "..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and failed.")
+                CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d100: "..result..modSign..", "..Ext.GetTranslatedStringFromKey(stat.DisplayName)..") and <font color=#ff0000>failed</font>.")
                 PlayEffect(character.MyGuid, "RS3_FX_Overhead_Dice_Red", "Dummy_OverheadFX")
             end
+        elseif infos.rollType == "RollObscura" then
+            CharacterStatusText(character.MyGuid, "You rolled: "..tostring(result + tonumber(infos.mod)))
+            CombatLog.AddTextToAllPlayers("SSRolls", character.DisplayName.." rolled "..result+tonumber(infos.mod).." (d6: "..result..modSign..", <font color=#cc00cc>Obscura</font>)")
+            PlayEffect(character.MyGuid, "RS3_FX_Overhead_Dice_Purple", "Dummy_OverheadFX")
         else
             CharacterStatusText(character.MyGuid, "You rolled: "..tostring(result + tonumber(infos.mod)))
             local rollType = ""
