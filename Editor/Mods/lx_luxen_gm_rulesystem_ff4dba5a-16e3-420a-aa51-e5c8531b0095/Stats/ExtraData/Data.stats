@@ -49,5 +49,17 @@
         <field name="Value" type="FloatStatObjectFieldDefinition" value="12" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_ShadowDamagePerTi" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="0.75" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_EnergyIncreaseResisted" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

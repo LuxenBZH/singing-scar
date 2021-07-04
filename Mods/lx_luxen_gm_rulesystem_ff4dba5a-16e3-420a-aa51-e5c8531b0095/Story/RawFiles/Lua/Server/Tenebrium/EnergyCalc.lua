@@ -46,8 +46,6 @@ local function HitAnalysis(target, instigator, damage, handle)
     local pass,instigator = pcall(Ext.GetCharacter, instigator)
     if not pass then return end
 
-    -- ScaleTenebriumDamage(target, instigator, handle)
-    -- ApplyTenebriumOverchargeMultiplier(target, handle)
     -- Flags
     local dodged = NRD_StatusGetInt(target.MyGuid, handle, "Dodged")
     local missed = NRD_StatusGetInt(target.MyGuid, handle, "Missed")
@@ -65,6 +63,7 @@ local function HitAnalysis(target, instigator, damage, handle)
         local weapon = Ext.GetItem(instigator.Stats.MainWeapon)
         if weapon ~= nil then 
             if not weapon.Stats.IsTwoHanded then multiplier = multiplier * 0.5 end
+            if not Game.Math.IsRangedWeapon(weapon) then multiplier = multiplier * 0.66 end
         end
         multiplier = multiplier * Game.Math.CalculateHitChance(instigator.Stats, target.Stats)/100
         CalculateTEIncrease(instigator.MyGuid, multiplier)
@@ -72,6 +71,15 @@ local function HitAnalysis(target, instigator, damage, handle)
     end
     -- Critical hit gain
     if critical == 1 and backstab == 0 then
+        local totalDmg = 0
+        for i, dmgType in pairs(damageTypes) do
+            local dmg = NRD_HitStatusGetDamage(target.MyGuid, handle, dmgType)
+            totalDmg = totalDmg + dmg
+        end
+        local expected = 2 * Game.Math.GetAverageLevelDamage(instigator.Stats.Level)
+        if totalDmg < expected then
+            multiplier = multiplier * (totalDmg/expected)
+        end
         multiplier = multiplier * (100 - instigator.Stats.CriticalChance)/100
         CalculateTEIncrease(target.MyGuid, multiplier)
     end
@@ -118,21 +126,12 @@ Ext.RegisterListener("StatusHitEnter", function(status, context)
         local pass,instigator = pcall(Ext.GetCharacter, status.StatusSourceHandle)
         if not pass then return end
         -- Tenebrium damage scaled by infusion
-        local bonus = CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(instigator) / 1.25
+        local bonus = CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(instigator) * Ext.ExtraData.TEN_ShadowDamagePerTi
         local shadowDmg = status.Hit.DamageList:GetByType("Shadow")
         hit.DamageList:Add("Shadow", math.floor(shadowDmg*(bonus/100)))
-        -- Overcharge multiplier
-        -- local te = CustomStatSystem:GetStatByID("TenebriumEnergy", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(target)
-        -- local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(instigator)
-        -- local diff = te - ti
-        -- if diff > 0 then
-        --     HitMultiplyDamage(hit, target, instigator, 1.0+(diff/100))
-        --     -- hit.DamageList:Multiply(1.0+(diff/100))
-        -- end
         -- Tainted feet surface multiplier
         if target:GetStatus("TEN_TAINTEDFEET") ~= nil and (status.DamageSourceType == "SurfaceTick" or status.DamageSourceType == "SurfaceMove" or status.DamageSourceType == "SurfaceCreate") then
             HitMultiplyDamage(hit, target, instigator, 3.0)
-            -- hit.DamageList:Multiply(3.0)
         end
         status.Hit = hit
     end
@@ -173,7 +172,7 @@ Ext.RegisterOsirisListener("CharacterStatusApplied", 3, "before", function(chara
     if status == "CHARMED" or (sts.LoseControl == "Yes" or incapacitatedTypes[sts.StatusType])then
         local turns = GetStatusTurns(character, status)
         if turns > 0 then
-            CalculateTEIncrease(character, turns)
+            CalculateTEIncrease(character, turns*0.5)
         end
     end
 end)

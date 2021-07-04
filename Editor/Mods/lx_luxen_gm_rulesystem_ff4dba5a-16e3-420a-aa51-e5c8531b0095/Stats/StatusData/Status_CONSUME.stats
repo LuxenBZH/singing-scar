@@ -125,6 +125,7 @@
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge1" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="CMP_ER_Move_or_Die" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -134,6 +135,7 @@
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge2" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="CMP_ER_Move_or_Die" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -143,6 +145,7 @@
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge3" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="CMP_ER_Move_or_Die" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -152,6 +155,7 @@
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_TEN_Overcharge4" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_TEN_Overcharge" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Tenebrium_Overcharge" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="CMP_ER_Move_or_Die" />
       </fields>
     </stat_object>
   </stat_objects>

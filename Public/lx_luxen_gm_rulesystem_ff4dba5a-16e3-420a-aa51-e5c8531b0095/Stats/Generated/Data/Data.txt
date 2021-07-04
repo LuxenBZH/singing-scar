@@ -14,3 +14,7 @@ key "SRP_KnowledgeHardCap","10"
 
 key "SRP_KnowledgeBasePoints","12"
 
+key "TEN_ShadowDamagePerTi","0.75"
+
+key "TEN_EnergyIncreaseResisted","1"
+

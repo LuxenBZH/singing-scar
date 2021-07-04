@@ -79,7 +79,7 @@ local function ShowTenebriumInfusionTooltip(ui, call, statId, arg, x, y, ...)
     end
 end
 
----@param character EsvCharacter
+---@param character EclCharacter
 ---@param skill string
 ---@param tooltip TooltipData
 local function OnStatTooltip(character, stat, tooltip)
@@ -92,48 +92,54 @@ local function OnStatTooltip(character, stat, tooltip)
     if stat == "UNKNOWN STAT" and isTenebriumInfusionTooltip then
         tooltip:GetElement("StatName").Label = "Tenebrium Infusion"
         statsDescription.Label = "How tainted your Source is. The more tainted you are, the more side effects you will encounter."
-        local ti = RetrieveCharacterCustomStatValue(character, "SRP_TenebriumInfusion_")
-        tooltip:AppendElement({
-            Type = "StatsPercentageBonus",
-            Label = "Shadow damages are increased by "..math.floor(ti/1.5).."%"
-        })
+        local ti = CustomStatSystem:GetStatByID("TenebriumInfusion"):GetValue(character)
+        if ti > 0 then
+            tooltip:AppendElement({
+                Type = "StatsPercentageBoost",
+                Label = "Shadow damages are increased by "..math.floor(ti*Ext.ExtraData.TEN_ShadowDamagePerTi).."%"
+            })
+        end
         local malus1 ={
             Type = "StatsPercentageMalus",
             Label = ""
         }
+        local malus2 = {
+            Type = "StatsPercentageMalus",
+            Label = ""
+        }
+        local bonus1 = {
+            Type = "StatsPercentageBoost",
+            Label = ""
+        }
         if ti >= 20 then
-            malus1.Label = "If Tenebrium Energy is above your infusion value:<br>  •(20) you receive Shadow damage at the end of your turn."
+            local dmg = tostring(math.floor(Game.Math.GetAverageLevelDamage(character.Stats.Level)*0.3))
+            malus1.Label = "During overcharge:<br>  •(20) you receive <font color=#990099>"..dmg.." Shadow damage</font> at the end of your turn."
             tooltip:AppendElement(malus1)
-            tooltip:AppendElement({
-                Type = "StatsPercentageMalus",
-                Label = "(20) Sleeping rolls receive a penalty of 2"
-            })
+            bonus1.Label = bonus1.Label.."During overcharge:<br>  •(20) Movement speed +35%"
+            tooltip:AppendElement(bonus1)
+            malus2.Label = "(20) Sleeping rolls receive a penalty of 2"
+            tooltip:AppendElement(malus2)
+            
         end
         if ti >= 40 then
-            malus1.Label = malus1.Label.."<br>  •(40) 10% of damage and healings done are reflected back to you as Shadow damage."
-            tooltip:AppendElement({
-                Type = "StatsPercentageMalus",
-                Label = "(40) Obscura and Aurora +1"
-            })
+            malus1.Label = malus1.Label.."<br>  •(40) 15% of damage and healings done are reflected back to you as Shadow damage."
+            bonus1.Label = bonus1.Label.."<br>  •(40) Retribution +3"
+            malus2.Label = malus2.Label.."<br>(40) Obscura and Aurora +1"
         end
         if ti >= 60 then
-            malus1.Label = malus1.Label.."<br>  •(60) you can critically fail skills"
-            tooltip:AppendElement({
-                Type = "StatsPercentageMalus",
-                Label = "(60) You cannot use fortune points"
-            })
+            malus1.Label = malus1.Label.."<br>  •(60) You cannot recover Physical and Magic armours"
+            bonus1.Label = bonus1.Label.."<br>  •(60) All your damages entirely go through armours and healings provide 20% more temporary health"
+            malus2.Label = malus2.Label.."<br>(60) You cannot use fortune points"
         end
         if ti >= 80 then
-            malus1.Label = malus1.Label.."<br>  •(80) at the end of your turn, you receive Mad for 1 turn"
-            tooltip:AppendElement({
-                Type = "StatsPercentageMalus",
-                Label = "(80) You sometimes lose control of your actions"
-            })
+            malus1.Label = malus1.Label.."<br>  •(80) Healings are blocked and Death Resist break when reaching 1HP"
+            bonus1.Label = bonus1.Label.."<br>  •(80) You are immune to all kind of crowd control"
+            malus2.Label = malus2.Label.."<br>(80) You sometimes lose control of your actions"
         end
         isTenebriumInfusionTooltip = false
     elseif stat == "UNKNOWN STAT" and isTenebriumEnergyTooltip then
         tooltip:GetElement("StatName").Label = "Tenebrium Energy"
-        statsDescription.Label = "How active is the Tenebrium Infusion. Increase with missed and resisted attacks, by receiving a critical hit or when being incapacitated. The stronger the infusion is, the more energy it will generate. If you leave a combat while your energy value is above your infusion value, the infusion might increase."
+    statsDescription.Label = "How active is the Tenebrium Infusion. Increase with missed and resisted attacks, by receiving a critical hit or when being incapacitated. The stronger the infusion is, the more energy it will generate.<br>If the energy grow above the Infusion value you get overcharged, generating side effects. The overcharge can only be triggered during your turn.<br>Reaching the overcharge value, overcharging and starting a turn while being overcharged increase your chances of seeing your Infusion growing at the end of the battle. Spending energy reduces it."
         isTenebriumEnergyTooltip = false
     end
 end

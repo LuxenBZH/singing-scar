@@ -51,6 +51,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_TEN_Overcharge1" />
         <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="35" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -58,24 +59,23 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_TEN_Overcharge2" />
         <field name="PainReflection" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="35" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_TEN_Overcharge3" />
         <field name="PainReflection" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="AccuracyBoost" type="IntegerStatObjectFieldDefinition" value="15" />
-        <field name="DodgeBoost" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
+        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="35" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_TEN_Overcharge4" />
         <field name="PainReflection" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="AccuracyBoost" type="IntegerStatObjectFieldDefinition" value="15" />
-        <field name="DodgeBoost" type="IntegerStatObjectFieldDefinition" value="15" />
-        <field name="APStart" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="APRecovery" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
+        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="35" />
       </fields>
     </stat_object>
   </stat_objects>

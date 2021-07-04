@@ -259,3 +259,13 @@ function ShiftTable(t)
     end
     return t
 end
+
+function GetOverchargeStep(character)
+    local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    if ti > 80 then return 4
+    elseif ti > 60 then return 3
+    elseif ti > 40 then return 2
+    elseif ti > 20 then return 1
+    else return 0
+    end
+end

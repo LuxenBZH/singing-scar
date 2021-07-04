@@ -36,25 +36,45 @@ Ext.RegisterOsirisListener("CharacterMadePlayer", 1, "after", CatchGMPossession)
 
 
 local tEnergyArray = {
-    ["5"] = "SRP_TE5",
-    ["10"] = "SRP_TE10",
-    ["15"] = "SRP_TE15",
-    ["20"] = "SRP_TE20",
-    ["25"] = "SRP_TE25",
-    ["30"] = "SRP_TE30",
-    ["35"] = "SRP_TE35",
-    ["50"] = "SRP_TE50",
-    ["75"] = "SRP_TE75"
+    [5] = "SRP_TE5",
+    [10] = "SRP_TE10",
+    [15] = "SRP_TE15",
+    [20] = "SRP_TE20",
+    [25] = "SRP_TE25",
+    [30] = "SRP_TE30",
+    [35] = "SRP_TE35",
+    [50] = "SRP_TE50",
+    [75] = "SRP_TE75"
 }
 
-function GetTenebriumEnergy(character)
-    return PersistentVars.tEnergyServer[Ext.GetCharacter(character).MyGuid] or 0
+local ocThresholds = {
+    [1] = "TEN_OVERCHARGE1",
+    [2] = "TEN_OVERCHARGE2",
+    [3] = "TEN_OVERCHARGE3",
+    [4] = "TEN_OVERCHARGE4",
+}
+
+local function UpdateOvercharge(character, te)
+    local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    if te > ti then
+        local step = ocThresholds[GetOverchargeStep(character)]
+        if step then
+            ApplyStatus(character, step, -1, 1)
+        end
+    else
+        for threshold, status in pairs(ocThresholds) do
+            if HasActiveStatus(character, status) == 1 then
+                RemoveStatus(character, status)
+            end
+        end
+    end
+
 end
 
 local function UpdateTETag(character, newValue)
     -- Ext.Print(newValue)
     for value, tag in pairs(tEnergyArray) do
-        if tonumber(newValue) >= tonumber(value) then
+        if tonumber(newValue) >= value then
             SetTag(character, tag)
             -- Ext.Print("Set", character, tag)
         else
@@ -65,6 +85,7 @@ local function UpdateTETag(character, newValue)
     if Mods.LeaderLib ~= nil and CharacterGetReservedUserID(character) ~= -65536 then
         Mods.LeaderLib.GameHelpers.UI.RefreshSkillBar(character)
     end
+    UpdateOvercharge(character, newValue)
 end
 
 local function UpdateTE(character, event)
