@@ -4,6 +4,6 @@ data "ModifierType" "Item"
 data "Damage Type" "Shadow"
 data "Damage" "1"
 data "Damage Range" "5"
-data "DamageFromBase" "35"
+data "DamageFromBase" "50"
 data "Charges" "0"
 

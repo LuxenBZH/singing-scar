@@ -16,3 +16,20 @@ Ext.RegisterOsirisListener("ObjectTurnEnded", 1, "before", function(object)
         CharacterStatusText(object, "<font color='#990099'>Tenebrium Overcharge !</font>")
     end
 end)
+
+---- 2nd step infusion
+--- @param target string GUID
+--- @param instigator string GUID
+--- @param amount integer
+--- @param handle double StatusHandle
+Ext.RegisterOsirisListener("NRD_OnHeal", 4, "before", function(target, instigator, amount, handle)
+    Ext.Print(instigator)
+    if GetOverchargeStep(instigator) > 1 then
+        local hit = NRD_HitPrepare(instigator, instigator)
+        NRD_HitAddDamage(hit, "Shadow", amount*0.1)
+        NRD_HitSetInt(hit, "SimulateHit", 1)
+        NRD_HitSetInt(hit, "HitType", 5)
+        NRD_HitSetInt(hit, "CriticalRoll", 2)
+        NRD_HitExecute(hit)
+    end
+end)

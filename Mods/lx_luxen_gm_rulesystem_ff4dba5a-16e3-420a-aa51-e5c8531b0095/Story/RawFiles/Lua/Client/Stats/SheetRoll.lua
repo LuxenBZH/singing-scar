@@ -129,7 +129,7 @@ Ext.RegisterListener("SessionLoaded", function()
 end)
 
 if Ext.IsDeveloperMode() then
-    RegisterListener("BeforeLuaReset", function()
+    Mods.LeaderLib.RegisterListener("BeforeLuaReset", function()
         CombatLog.RemoveFilter("SSRolls")
     end)
 end

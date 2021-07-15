@@ -269,3 +269,12 @@ function GetOverchargeStep(character)
     else return 0
     end
 end
+
+function GetTotalDamage(hitHandle)
+    local totalDmg = 0
+    for i, dmgType in pairs(damageTypes) do
+        local dmg = NRD_HitStatusGetDamage(target.MyGuid, handle, dmgType)
+        totalDmg = totalDmg + dmg
+    end
+    return totalDmg
+end
