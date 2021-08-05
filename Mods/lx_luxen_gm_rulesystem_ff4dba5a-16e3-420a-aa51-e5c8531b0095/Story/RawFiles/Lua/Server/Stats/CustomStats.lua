@@ -15,15 +15,16 @@ local costs = {
 for cStat,pool in pairs(aptitudeDevStats) do
     CustomStatSystem:RegisterStatValueChangedListener(cStat, function(id, stat, character, previousPoints, currentPoints)
         if currentPoints - previousPoints == 1 then
-            local soul = CustomStatSystem:GetStatByID("Soul", "ff4dba5a-16e3-420a-aa51-e5c8531b0095")
-            local soulPoints = soul:GetValue(character.NetID)
+            local soul = CustomStatSystem:GetStatByID("Soul", ModuleUUID)
+            local soulPoints = soul:GetValue(character)
             if soulPoints < costs[cStat]-1 then
-                soul:SetValue(character.NetID, 0)
+                soul:SetValue(character, 0)
             else
-                soul:SetValue(character.NetID, soulPoints - costs[cStat])
+                soul:SetValue(character, soulPoints - costs[cStat])
             end
             -- CustomStatSystem:AddAvailablePoints(character, cStat, 1, "ff4dba5a-16e3-420a-aa51-e5c8531b0095")
-            CustomStatSystem:AddAvailablePoints(character, pool, 1, "ff4dba5a-16e3-420a-aa51-e5c8531b0095")
+            Ext.Print(character.MyGuid)
+            CustomStatSystem:AddAvailablePoints(character, pool, 1, ModuleUUID)
         end
     end)
 end

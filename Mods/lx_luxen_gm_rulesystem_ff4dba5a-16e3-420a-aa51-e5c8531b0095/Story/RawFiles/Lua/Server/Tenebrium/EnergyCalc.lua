@@ -144,25 +144,25 @@ Ext.RegisterListener("StatusHitEnter", function(status, context)
     end
 end)
 
-Ext.RegisterOsirisListener("ObjectLeftCombat", 2, "after", function(object, combatID)
-    if ObjectIsCharacter(object) == 0 then return end
-    local tInfusion = GetCustomStatPoints(object, "Tenebrium infusion")
-    local tEnergy = GetTenebriumEnergy(object)
-    if tInfusion == 0 then return end
-    if tEnergy > tInfusion then
-        local roll = math.random(1, 100)
-        if roll > tInfusion then
-            local subtract = (tEnergy - tInfusion) < 10 and 1 or tEnergy - tInfusion
-            local increase = tonumber(string.sub(tostring(subtract), 1, 1))
-            if increase < 3 then increase = 3 end
-            Ext.Print("TI increased by", increase, "(rolled",roll,")")
-            CustomStatSystem:GetStatByID("TenebriumEnergy", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):SetValue(object, tInfusion+increase)
-            PlayEffect(object, "RS3_FX_Overhead_Dice_Purple", "Dummy_OverheadFX")
-            CharacterStatusText(object, "Tenebrium Infusion +"..tostring(increase).." !")
-            -- SetCharacterCustomStatTag(Ext.GetCharacter(object).MyGuid, "SRP_TenebriumInfusion_", tInfusion+increase)
-        end
-    end
-end)
+-- Ext.RegisterOsirisListener("ObjectLeftCombat", 2, "after", function(object, combatID)
+--     if ObjectIsCharacter(object) == 0 then return end
+--     local tInfusion = GetCustomStatPoints(object, "Tenebrium infusion")
+--     local tEnergy = GetTenebriumEnergy(object)
+--     if tInfusion == 0 then return end
+--     if tEnergy > tInfusion then
+--         local roll = math.random(1, 100)
+--         if roll > tInfusion then
+--             local subtract = (tEnergy - tInfusion) < 10 and 1 or tEnergy - tInfusion
+--             local increase = tonumber(string.sub(tostring(subtract), 1, 1))
+--             if increase < 3 then increase = 3 end
+--             Ext.Print("TI increased by", increase, "(rolled",roll,")")
+--             CustomStatSystem:GetStatByID("TenebriumEnergy", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):SetValue(object, tInfusion+increase)
+--             PlayEffect(object, "RS3_FX_Overhead_Dice_Purple", "Dummy_OverheadFX")
+--             CharacterStatusText(object, "Tenebrium Infusion +"..tostring(increase).." !")
+--             -- SetCharacterCustomStatTag(Ext.GetCharacter(object).MyGuid, "SRP_TenebriumInfusion_", tInfusion+increase)
+--         end
+--     end
+-- end)
 
 local incapacitatedTypes = {
     FEAR = true,

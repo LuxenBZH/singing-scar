@@ -55,7 +55,7 @@ end
 
 UI.ContextMenu.Register.ShouldOpenListener(function(contextMenu, x, y)
     local request = Game.Tooltip.GetCurrentOrLastRequest()
-    Ext.Dump(request)
+    -- Ext.Dump(request)
     if Game.Tooltip.LastRequestTypeEquals("CustomStat") and Game.Tooltip.IsOpen() and tnCalc[request.StatData.ID] then
         -- or if Game.Tooltip.RequestTypeEquals("CustomStat")
         return true
