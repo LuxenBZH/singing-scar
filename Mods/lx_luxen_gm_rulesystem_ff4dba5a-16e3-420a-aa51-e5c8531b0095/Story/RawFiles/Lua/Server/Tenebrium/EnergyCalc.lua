@@ -45,7 +45,7 @@ local function HitAnalysis(target, instigator, damage, handle)
     if Ext.GetGameObject(instigator) == nil then return end
     local pass,instigator = pcall(Ext.GetCharacter, instigator)
     if not pass then return end
-    local status = Ext.GetStatus(handle)
+    local status = Ext.GetStatus(target.MyGuid, handle)
 
     -- Flags
     local dodged = NRD_StatusGetInt(target.MyGuid, handle, "Dodged")
@@ -72,7 +72,7 @@ local function HitAnalysis(target, instigator, damage, handle)
     end
     -- Critical hit gain
     if critical == 1 and backstab == 0 then
-        local totalDmg = GetTotalDamage(handle)
+        local totalDmg = GetTotalDamage(target.MyGuid, handle)
         local expected = 2 * Game.Math.GetAverageLevelDamage(instigator.Stats.Level)
         if totalDmg < expected then
             multiplier = multiplier * (totalDmg/expected)
@@ -101,15 +101,15 @@ local function HitAnalysis(target, instigator, damage, handle)
         CalculateTEIncrease(instigator.MyGuid, multiplier)
     end
     -- 2nd step infusion
-    if GetOverchargeStep(instigator) > 1 and (status.DamageSourceType == "Attack" or status.SkillId ~= "") then
-        local dmg = GetTotalDamage(handle)
-        local hit = NRD_HitPrepare(object, object)
-        NRD_HitAddDamage(hit, "Shadow", math.floor(dmg*0.1))
-        NRD_HitSetInt(hit, "SimulateHit", 1)
-        NRD_HitSetInt(hit, "HitType", 5)
-        NRD_HitSetInt(hit, "CriticalRoll", 2)
-        NRD_HitExecute(hit)
-    end
+    -- if GetOverchargeStep(instigator) > 1 and (status.DamageSourceType == "Attack" or status.SkillId ~= "") then
+    --     local dmg = GetTotalDamage(target.MyGuid, handle)
+    --     local hit = NRD_HitPrepare(target.MyGuid, target.MyGuid)
+    --     NRD_HitAddDamage(hit, "Shadow", math.floor(dmg*0.1))
+    --     NRD_HitSetInt(hit, "SimulateHit", 1)
+    --     NRD_HitSetInt(hit, "HitType", 5)
+    --     NRD_HitSetInt(hit, "CriticalRoll", 2)
+    --     NRD_HitExecute(hit)
+    -- end
 end
 
 -- Ext.RegisterListener("StatusHitEnter", HitAnalysis)

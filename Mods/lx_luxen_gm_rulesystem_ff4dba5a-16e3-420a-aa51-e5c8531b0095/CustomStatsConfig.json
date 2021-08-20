@@ -207,6 +207,13 @@
 			"Create" : true,
 			"Visible" : false
 		},
+		"SRP_InfusionProgress": {
+			"DisplayName": "SRP_InfusionProgress_DisplayName",
+			"Description": "SRP_InfusionProgress_Description",
+			"Category": "Miscellaneous",
+			"Create" : true,
+			"Visible" : false
+		},
 		"Fortune": {
 			"DisplayName": "SRP_Fortune_DisplayName",
 			"Description": "SRP_Fortune_Description",

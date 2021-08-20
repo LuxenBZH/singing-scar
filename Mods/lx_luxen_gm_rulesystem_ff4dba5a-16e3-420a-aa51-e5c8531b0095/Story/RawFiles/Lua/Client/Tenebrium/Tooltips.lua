@@ -4,7 +4,7 @@ local function SubstituteString(str, ...)
     local result = str
 
     for k, v in pairs(args) do
-        if v == math.floor(v) then v = math.floor(v) end -- Formatting integers to not show .0
+        if type(v) == "number" and v == math.floor(v) then v = math.floor(v) end -- Formatting integers to not show .0
         result = result:gsub("%["..tostring(k).."%]", v)
     end
     return result
@@ -27,6 +27,7 @@ end
 ---@param tooltip TooltipData
 local function TenebriumSkillDisplayRequirement(character, skill, tooltip)
     skill = Ext.GetStat(skill)
+    -- Ext.Print(skill.Name)
     if skill.Ability ~= "Source" then return end
     local requirementMet = true
     for i,element in pairs(tooltip:GetElements("SkillRequiredEquipment")) do
@@ -36,7 +37,11 @@ local function TenebriumSkillDisplayRequirement(character, skill, tooltip)
             requirementMet = false
             element.Label = SubstituteString(Ext.GetTranslatedStringFromKey("TE_Cost"), amount)
         end
-        
+    if skill.Name == "Summon_TEN_FoulWinds" then
+        for i,element in pairs(tooltip:GetElements("SkillProperties")) do
+            tooltip:RemoveElement(element)
+        end
+    end
     end
     -- Ext.Dump(tooltip)
     -- Ext.Print(requirementMet)

@@ -157,3 +157,20 @@ data "StatusEffect" "RS3_FX_GP_Tenebrium_Overcharge:Dummy_BodyFX"
 data "StatsId" "Stats_TEN_Overcharge4"
 data "StackId" "Stack_TEN_Overcharge"
 
+new entry "TEN_FOULWIND_INFLUENCE"
+type "StatusData"
+data "StatusType" "CONSUME"
+data "AuraRadius" "5"
+data "AuraAllies" "TEN_FOULWIND"
+data "AuraNeutrals" "TEN_FOULWIND"
+data "AuraEnemies" "TEN_FOULWIND"
+data "AuraItems" "TEN_FOULWIND"
+
+new entry "TEN_FOULWIND"
+type "StatusData"
+data "StatusType" "CONSUME"
+
+new entry "TEN_POWERHIT_COMBO"
+type "StatusData"
+data "StatusType" "CONSUME"
+

@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stats stat_object_definition_id="a8098c1a-f86e-11da-bd1a-00112444be1e">
-  <stat_objects />
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="LX_FoulWinds" />
+        <field name="Strength" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="PreciseQualifier" />
+        <field name="Finesse" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="PreciseQualifier" />
+        <field name="Intelligence" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="PreciseQualifier" />
+        <field name="Constitution" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="PreciseQualifier" />
+        <field name="Memory" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="PreciseQualifier" />
+        <field name="Wits" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="PreciseQualifier" />
+        <field name="Vitality" type="IntegerStatObjectFieldDefinition" value="1000" />
+        <field name="PiercingResistance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PhysicalResistance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="FireResistance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="EarthResistance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="WaterResistance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="AirResistance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PoisonResistance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="Flags" type="EnumerationListStatObjectFieldDefinition" value="1;2;3;4;5;7;6;8;9;10;11;12;13;14;15;16;18;17;19;20;21;23;22;24;25;26;27;34;35;36;37;39;38;40;41;42;43;44;46;48;52;53;58;59;60;50;49;51" enumeration_type_name="AttributeFlags" />
+      </fields>
+    </stat_object>
+  </stat_objects>
 </stats>

@@ -52,4 +52,5 @@ type "Potion"
 data "Act part" "1"
 data "PainReflection" "3"
 data "MovementSpeedBoost" "35"
+data "Flags" "FreezeImmunity;StunImmunity;CharmImmunity;FearImmunity;KnockdownImmunity;PetrifiedImmunity;SlippingImmunity;SleepingImmunity;TauntedImmunity;MadnessImmunity;ChickenImmunity"
 

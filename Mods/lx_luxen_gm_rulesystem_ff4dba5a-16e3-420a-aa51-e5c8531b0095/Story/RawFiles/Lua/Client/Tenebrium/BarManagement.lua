@@ -14,6 +14,8 @@ local function SetOverchargeAnimation(root, enable, minAlpha, maxAlpha, time)
     elseif not enable and root.console_mc.enableBlink then
         root.console_mc.enableBlink = false
         -- root.console_mc.blink()
+    elseif not enable then
+        root.console_mc.sbHolder2_mc.alpha = 0
     end
 end
 
@@ -102,9 +104,16 @@ local function AddCustomInfo(ui, ...)
     -- Ext.Print("updateArraySystem")
     local sheet = Ext.GetBuiltinUI("Public/Game/GUI/characterSheet.swf")
     local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+    local hud = Ext.GetBuiltinUI("Public/Game/GUI/GM/GMPanelHUD.swf")
     -- sheet:ExternalInterfaceCall("updateArraySystem")
+    local targetHandle = hud:GetRoot().targetHandle
     local charHandle = hotbar:GetRoot().hotbar_mc.characterHandle
+    -- Ext.Print(targetHandle, charHandle)
+    if targetHandle ~= 0.0 then
+        charHandle = targetHandle
+    end
     local char = Ext.GetCharacter(Ext.DoubleToHandle(charHandle))
+    -- Ext.Print(char.DisplayName)
     local te = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(char)
     local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(char)
     AddToSecStatArray(sheet:GetRoot().secStat_array, 0, "T. Energy", tostring(te).."/100", "", 4, 101)
@@ -116,6 +125,7 @@ local function TEN_SetupUI()
     local charSheet = Ext.GetBuiltinUI("Public/Game/GUI/characterSheet.swf")
     local statusConsole = Ext.GetBuiltinUI("Public/Game/GUI/statusConsole.swf")
     local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+    local hud = Ext.GetBuiltinUI("Public/Game/GUI/GM/GMPanelHUD.swf")
     statusConsole:GetRoot().console_mc.sourceHolder_mc.y = -53
     -- Ext.Print("statusconsole", statusConsole.GetTypeId(statusConsole))
     -- Ext.RegisterUICall(charSheet, "plusCustomStat", CustomStatChanged)
@@ -124,6 +134,7 @@ local function TEN_SetupUI()
     Ext.RegisterUICall(statusConsole, "statusConsoleRollOver", DisplayTEInfo)
     Ext.RegisterUICall(statusConsole, "statusConsoleRollOut", DisplayTEInfo)
     Ext.RegisterUIInvokeListener(charSheet, "updateArraySystem", AddCustomInfo)
+    Ext.RegisterUIInvokeListener(charSheet, "setupStrings", AddCustomInfo)
     -- Ext.RegisterUICall(statusConsole, "BackToGMPressed", SwitchShadowBarDisplay)
     -- Ext.RegisterUINameCall("possess", TestTooltip4, "After")
     -- Ext.RegisterUITypeCall(32, "charSel", UpdateShadowBarValue)

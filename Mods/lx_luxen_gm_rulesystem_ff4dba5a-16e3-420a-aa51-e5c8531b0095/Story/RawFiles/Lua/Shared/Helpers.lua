@@ -57,11 +57,13 @@ end
 --- @param hit HitRequest
 --- @param target EsvCharacter
 function HitRecalculateAbsorb(hit, target)
-    local physDmg = HitGetPhysicalDamage(hit)
-    local magicDmg = HitGetMagicDamage(hit)
-    local pArmourAbsorb = math.min(target.Stats.CurrentArmor, physDmg)
-    local mArmourAbsorb = math.min(target.Stats.CurrentMagicArmor, magicDmg)
-    hit.ArmorAbsorption = math.min(pArmourAbsorb + mArmourAbsorb, hit.TotalDamageDone)
+    if getmetatable(target) == "esv::Character" then
+        local physDmg = HitGetPhysicalDamage(hit)
+        local magicDmg = HitGetMagicDamage(hit)
+        local pArmourAbsorb = math.min(target.Stats.CurrentArmor, physDmg)
+        local mArmourAbsorb = math.min(target.Stats.CurrentMagicArmor, magicDmg)
+        hit.ArmorAbsorption = math.min(pArmourAbsorb + mArmourAbsorb, hit.TotalDamageDone)
+    end
 end
 
 --- @param hit HitRequest
@@ -270,11 +272,25 @@ function GetOverchargeStep(character)
     end
 end
 
-function GetTotalDamage(hitHandle)
+function isOvercharged(character)
+    return CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character) > CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+end
+
+function GetTotalDamage(target ,hitHandle)
     local totalDmg = 0
     for i, dmgType in pairs(damageTypes) do
-        local dmg = NRD_HitStatusGetDamage(target.MyGuid, handle, dmgType)
+        local dmg = NRD_HitStatusGetDamage(target, hitHandle, dmgType)
         totalDmg = totalDmg + dmg
     end
     return totalDmg
+end
+
+function ClearActionQueue(character, purge)
+    if purge then
+        CharacterPurgeQueue(character)
+    else
+        CharacterFlushQueue(character)
+    end
+    CharacterMoveTo(character, character, 1, "", 1)
+    CharacterSetStill(character)
 end

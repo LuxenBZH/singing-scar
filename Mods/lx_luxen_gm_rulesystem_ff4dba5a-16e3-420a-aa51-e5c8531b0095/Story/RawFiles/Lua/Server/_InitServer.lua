@@ -9,5 +9,6 @@ Ext.Require("Server/Tenebrium/EnergyCalc.lua")
 Ext.Require("Server/Tenebrium/Skills.lua")
 Ext.Require("Server/Tenebrium/EnergyManagement.lua")
 Ext.Require("Server/Tenebrium/Overcharge.lua")
+Ext.Require("Server/Tenebrium/Infusion.lua")
 
 CustomStatSystem = Mods.LeaderLib.CustomStatSystem

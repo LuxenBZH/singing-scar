@@ -158,5 +158,25 @@
         <field name="Icon" type="StringStatObjectFieldDefinition" value="CMP_ER_Move_or_Die" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_FOULWIND_INFLUENCE" />
+        <field name="AuraRadius" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="AuraAllies" type="StringStatObjectFieldDefinition" value="TEN_FOULWIND" />
+        <field name="AuraNeutrals" type="StringStatObjectFieldDefinition" value="TEN_FOULWIND" />
+        <field name="AuraEnemies" type="StringStatObjectFieldDefinition" value="TEN_FOULWIND" />
+        <field name="AuraItems" type="StringStatObjectFieldDefinition" value="TEN_FOULWIND" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_FOULWIND" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="TEN_POWERHIT_COMBO" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

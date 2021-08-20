@@ -43,6 +43,7 @@ local tEnergyArray = {
     [25] = "SRP_TE25",
     [30] = "SRP_TE30",
     [35] = "SRP_TE35",
+    [40] = "SRP_TE40",
     [50] = "SRP_TE50",
     [75] = "SRP_TE75"
 }
@@ -60,15 +61,16 @@ local function UpdateOvercharge(character, te)
         local step = ocThresholds[GetOverchargeStep(character)]
         if step then
             ApplyStatus(character, step, -1, 1)
+            SetStoryEvent(character, "SRP_Overcharging")
         end
     else
         for threshold, status in pairs(ocThresholds) do
             if HasActiveStatus(character, status) == 1 then
                 RemoveStatus(character, status)
+                SetStoryEvent(character, "SRP_OverchargeLoss")
             end
         end
     end
-
 end
 
 local function UpdateTETag(character, newValue)
@@ -98,8 +100,6 @@ local function UpdateTE(character, event)
     if CharacterIsInCombat(character) == 0 and IsTagged(character, "SRP_TEIgnoreCombat") == 0 then return end
     
     ClearTag(character, "SRP_TEIgnoreCombat")
-    -- if PersistentVars.tEnergyServer[char.MyGuid] == nil then PersistentVars.tEnergyServer[char.MyGuid] = 0 end
-    -- newValue = PersistentVars.tEnergyServer[char.MyGuid] + newValue
     local oldValue = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character)
     newValue = oldValue + newValue
     local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
@@ -112,14 +112,7 @@ local function UpdateTE(character, event)
     end
     if newValue < 0 then newValue = 0 end
     CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):SetValue(character, newValue)
-    -- PersistentVars.tEnergy[char.NetID] = newValue
-    -- SetCharacterCustomStatTag(char, "SRP_TenebriumEnergy_", newValue)
-    -- NRD_CharacterSetPermanentBoostInt(char.MyGuid, "CustomResistance", newValue)
-    -- CharacterAddAttribute(char.MyGuid, "Dummy", 0)
-    -- PersistentVars.tEnergyServer[char.MyGuid] = newValue
-    -- Ext.Print("Updating TE", newValue)
     UpdateTETag(character, newValue)
-    -- SendCharacterTEInformation(nil, char.NetID)
     Ext.PostMessageToClient(character, "SRP_UICharacterTE", "")
 end
 
@@ -136,52 +129,6 @@ local function OverchargeUnlock(character)
 end
 
 Ext.RegisterOsirisListener("ObjectTurnEnded", 1, "before", OverchargeUnlock)
-
--- local function EnableTEnergy()
---     if PersistentVars.tEnergyServer == nil then
---         PersistentVars.tEnergyServer = {}
---     end
---     PersistentVars.tEnergy = {}
--- end
-
--- Ext.RegisterListener("SessionLoaded", EnableTEnergy)
-
--- local function RestoreTEnergy(level, editor)
-    -- PersistentVars.tEnergy = {}
-    -- if PersistentVars.tEnergyServer ~= nil then
-    --     for char,te in pairs(PersistentVars.tEnergyServer) do
-    --         if ObjectExists(char) == 1 then
-                -- PersistentVars.tEnergy[Ext.GetCharacter(char).NetID] = te
-                -- NRD_CharacterSetPermanentBoostInt(char, "CustomResistance", te)
-                -- CharacterAddAttribute(char, "Dummy", 0)
-                -- SetCharacterCustomStatTag(Ext.GetCharacter(char), "SRP_TenebriumEnergy_", te)
-                -- SetVarInteger(char, "SRP_TEnergy", te)
-    --             UpdateTETag(char, te)
-    --             if CharacterGetReservedUserID(char) ~= -65536 then
-    --                 Ext.PostMessageToClient(char, "SRP_UICharacterTE", te)
-    --             end
-    --         end
-    --     end
-    -- end
--- end
-
--- Ext.RegisterOsirisListener("GameStarted", 2, "after", RestoreTEnergy)
-
-
-
--- local function InitShadowBarValueServer()
---     local playerCharacters = Osi.DB_IsPlayer:Get(nil)
---     for i,row in pairs(playerCharacters) do
---         local char = Ext.GetCharacter(row[1])
---         SendCharacterTEInformation(nil, char.NetID)
---     end
--- end
-
--- Ext.RegisterNetListener("SRP_UIShadowBarInitValue", InitShadowBarValueServer)
-
--- if Mods.LeaderLib ~= nil then
---     Mods.LeaderLib.AbilityManager.EnableAbility("Sourcery", "ff4dba5a-16e3-420a-aa51-e5c8531b0095")
--- end
 
 local function ConsumeTEfromTag(character, skill, skillType, skillElement)
     local skill = Ext.GetStat(skill)
