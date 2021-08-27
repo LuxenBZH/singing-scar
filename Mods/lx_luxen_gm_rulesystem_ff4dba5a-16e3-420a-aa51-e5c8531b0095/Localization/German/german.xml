@@ -6,6 +6,7 @@
 	<content contentuid="h05e2939fg9f5dg4509g9a60g8a7ae15fc030">Base Apt.</content>
 	<content contentuid="h07733051g3467g4418g8eb8g4b5c2f338392">Represents the social capabilities of your character. The &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; increase based on how much points you already invested:&lt;br&gt;1-2 : &lt;font color=#c68c53&gt;+8&lt;/font&gt;&lt;br&gt;3-4 : &lt;font color=#c68c53&gt;+7&lt;/font&gt;&lt;br&gt;5-6 : &lt;font color=#c68c53&gt;+6&lt;/font&gt;&lt;br&gt;7-8 : &lt;font color=#c68c53&gt;+5&lt;/font&gt;&lt;br&gt;9-10 : &lt;font color=#c68c53&gt;+4&lt;/font&gt;&lt;br&gt;Each point in Persuasion increase the &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; by &lt;font color=#c68c53&gt;2&lt;/font&gt;&lt;br&gt;Each stat cannot go above &lt;font color=#ccffff&gt;10&lt;/font&gt;.</content>
 	<content contentuid="h120a891eg4dacg423dg8cf5g987cdc6ddd3c">Suasion</content>
+	<content contentuid="h1518c9a0ga310g4af2g8bdbg17dc05f447fb">Infusion Progress</content>
 	<content contentuid="h164ee5ecg5984g4282ga843g2f0e29d61713">&lt;font color=#008055&gt;Persona&lt;/font&gt;</content>
 	<content contentuid="h1c938d03g07cfg4d6cg9aedgcbf3a3aab7d8">Blacksmithing</content>
 	<content contentuid="h1def54a8gcadbg4990gb5ddg8e059c469e94"> </content>
@@ -23,6 +24,7 @@
 	<content contentuid="h5006e0f6g4918g4cbag90bdgd30a36fffdff">Knowledge about nature, animals, tracking and orientation.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;When doing a sleeping roll, if the result is under your survivalism score you can decide to reroll with a -3 penalty.&lt;/font&gt;</content>
 	<content contentuid="h5009db5fgb997g48cagacd2g67a9fdf22e02"> </content>
 	<content contentuid="h54a5d918g4e9fg40efga9bfga0060d112cd6">Best used to confuse someone, lie and distract.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Agility.&lt;/font&gt;</content>
+	<content contentuid="h579a17a3gbbf2g4faag9e56g0b5134147309">The current progression of the infusion. Its max is 5 times the current infusion value, and once it&apos;s reached, the infusion will increase. Grow only during combat.</content>
 	<content contentuid="h59722366g5d35g456bg9575ga4dc398a3d65">Arcanes</content>
 	<content contentuid="h632f1f1ega940g44dcg8298gaf7d622bb43c">Your ability to sustain physical pressures and keep going on a longer time but also your raw strength.&lt;br&gt;Each point also increase your &lt;font color=&quot;#ff8000&quot;&gt;Death Saving throw&lt;/font&gt; chances by &lt;font color=&quot;#ff8000&quot;&gt;2%&lt;/font&gt;. Your total chance is currently &lt;font color=&quot;#ff8000&quot;&gt;[1]%&lt;/font&gt;.&lt;br&gt;Your current cap is &lt;font color=#ccffff&gt;[2]&lt;/font&gt; and can be increased by Strength and Constitution.</content>
 	<content contentuid="h6524370fge533g4a9cg9277g3edf9b368370">&lt;font color=&quot;#00802b&quot;&gt;Agility&lt;/font&gt;</content>
