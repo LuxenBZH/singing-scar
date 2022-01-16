@@ -1,8 +1,9 @@
 ---- Mechanical part
 
 local function CalculateTEIncrease(character, multiplier)
-    local tInfusionData = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID)
-    local tInfusion = tInfusionData:GetValue(character)
+    -- local tInfusionData = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID)
+    -- local tInfusion = tInfusionData:GetValue(character)
+    local tInfusion = Ext.GetCharacter(character):GetCustomStat(StatTI.Id)
     if tInfusion == 0 then return end
     if tInfusion < 15 then tInfusion = 10 end
     local gain = math.ceil(tInfusion*multiplier)
@@ -133,7 +134,8 @@ Ext.RegisterListener("StatusHitEnter", function(status, context)
         local pass,instigator = pcall(Ext.GetCharacter, status.StatusSourceHandle)
         if not pass then return end
         -- Tenebrium damage scaled by infusion
-        local bonus = CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(instigator) * Ext.ExtraData.TEN_ShadowDamagePerTi
+        -- local bonus = CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(instigator) * Ext.ExtraData.TEN_ShadowDamagePerTi
+        local bonus = instigator:GetCustomStat(StatTI.Id) * Ext.ExtraData.TEN_ShadowDamagePerTi
         local shadowDmg = status.Hit.DamageList:GetByType("Shadow")
         hit.DamageList:Add("Shadow", math.floor(shadowDmg*(bonus/100)))
         -- Tainted feet surface multiplier

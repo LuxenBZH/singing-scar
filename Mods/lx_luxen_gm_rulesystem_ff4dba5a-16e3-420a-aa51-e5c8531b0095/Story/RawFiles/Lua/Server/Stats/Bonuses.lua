@@ -1,7 +1,7 @@
 local customBonuses = {
     Agility = {Sight = 50},
     Perception = {Sight = 20},
-    Vision = {Sight = 100}
+    -- Vision = {Sight = 100}
 }
 
 --- @param character EsvCharacter
@@ -10,7 +10,10 @@ function SRP_SyncAttributeBonuses(char)
     char = Ext.GetCharacter(char)
     if char == nil then return end
     for attribute, bonuses in pairs(customBonuses) do
-        local charAttr = CustomStatSystem:GetStatByID(attribute, "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(char)
+        -- local charAttr = CustomStatSystem:GetStatByID(attribute, "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(char)
+        if #CStats == 0 then return end
+        -- Ext.Dump("stats", CStats)
+        local charAttr = char:GetCustomStat(CStats[attribute].Id)
         local statusName = "SRP_"..attribute.."_"..charAttr
         if NRD_StatExists(statusName) then
             ApplyStatus(char.MyGuid, statusName, -1, 1)
@@ -29,11 +32,15 @@ function SRP_SyncAttributeBonuses(char)
     end
 end
 
-for cStat, j in pairs(customBonuses) do
-    CustomStatSystem:RegisterStatValueChangedListener(cStat, function(id, stat, character, previousPoints, currentPoints)
-        SRP_SyncAttributeBonuses(character.MyGuid)
-    end)
-end
+Ext.RegisterNetListener("SRP_CStatsChanged", function(call, payload)
+    local info = Ext.JsonParse(payload)
+    SRP_SyncAttributeBonuses(Ext.GetCharacter(info.Character).MyGuid)
+end)
+-- for cStat, j in pairs(customBonuses) do
+--     CustomStatSystem:RegisterStatValueChangedListener(cStat, function(id, stat, character, previousPoints, currentPoints)
+--         SRP_SyncAttributeBonuses(character.MyGuid)
+--     end)
+-- end
 
 local function SRP_ReloadStats(level, isEditor)
     CharacterLaunchOsirisOnlyIterator("SRP_ApplyCustomStatuses")

@@ -56,9 +56,11 @@ local ocThresholds = {
 }
 
 local function UpdateOvercharge(character, te)
-    local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    -- local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    local ti = Ext.GetCharacter(character):GetCustomStat(StatTI.Id)
     if te > ti then
         local step = ocThresholds[GetOverchargeStep(character)]
+        Ext.Print(step)
         if step then
             ApplyStatus(character, step, -1, 1)
             SetStoryEvent(character, "SRP_Overcharging")
@@ -100,19 +102,26 @@ local function UpdateTE(character, event)
     if CharacterIsInCombat(character) == 0 and IsTagged(character, "SRP_TEIgnoreCombat") == 0 then return end
     
     ClearTag(character, "SRP_TEIgnoreCombat")
-    local oldValue = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character)
+    -- local oldValue = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character)
+    local oldValue = char:GetCustomStat(StatTE.Id)
     newValue = oldValue + newValue
-    local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    -- local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    local ti = char:GetCustomStat(StatTI.Id)
     if newValue > 100 then newValue = 100 end
     -- Overcharge lock if it's not your turn
     if IsTagged(character, "SRP_InCombatTurn") == 0 then
         if oldValue < ti and newValue > ti then
             newValue = ti
         end
+    else
     end
     if newValue < 0 then newValue = 0 end
-    CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):SetValue(character, newValue)
+    -- CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):SetValue(character, newValue)
+    char:SetCustomStat(StatTE.Id, newValue)
     UpdateTETag(character, newValue)
+    if newValue - oldValue > 0 then
+        IncreaseInfusionProgress(character, newValue - oldValue)
+    end
     Ext.PostMessageToClient(character, "SRP_UICharacterTE", "")
 end
 
@@ -148,11 +157,11 @@ end
 Ext.RegisterOsirisListener("CharacterUsedSkill", 4, "before", ConsumeTEfromTag)
 
 
-CustomStatSystem:RegisterStatValueChangedListener("TenebriumEnergy", function(id, stat, character, previousPoints, currentPoints)
-    if CharacterIsInCombat(character.MyGuid) == 0 and IsTagged(character.MyGuid, "SRP_TEIgnoreCombat") == 0 then
-        UpdateTETag(character.MyGuid, currentPoints)
-        Ext.PostMessageToClient(character.MyGuid, "SRP_UICharacterTE", "")
-    else
-        UpdateTE(character.MyGuid, "SRP_UpdateTE")
-    end
-end)
+-- CustomStatSystem:RegisterStatValueChangedListener("TenebriumEnergy", function(id, stat, character, previousPoints, currentPoints)
+--     if CharacterIsInCombat(character.MyGuid) == 0 and IsTagged(character.MyGuid, "SRP_TEIgnoreCombat") == 0 then
+--         UpdateTETag(character.MyGuid, currentPoints)
+--         Ext.PostMessageToClient(character.MyGuid, "SRP_UICharacterTE", "")
+--     else
+--         UpdateTE(character.MyGuid, "SRP_UpdateTE")
+--     end
+-- end)

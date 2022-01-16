@@ -10,8 +10,10 @@ Ext.RegisterOsirisListener("CharacterUsedSkill", 4, "after", function(char, skil
         SetTag(char, "SRP_TEIgnoreCombat")
         SetStoryEvent(char, "SRP_UpdateTE")
     elseif skill == "Shout_TEN_Unleash" then
-        local te = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(char)
-        local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(char)
+        -- local te = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(char)
+        -- local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(char)
+        local te = character:GetCustomStat(StatTE.Id)
+        local ti = character:GetCustomStat(StatTI.Id)
         if te == ti then
             SetVarInteger(char, "SRP_TEnergy", 30)
         else

@@ -21,10 +21,14 @@ local function ManageCharacterDeath(character, status, handle, instigator)
 	if status ~= "DYING" then return end
 	if HasActiveStatus(character, "UNCONSCIOUS") == 1 then return end
 	Ext.Print("DEATH!")
+    local char = Ext.GetCharacter(character)
 	-- Manage death saving throw
-	local endurance = CustomStatSystem:GetStatByID("Endurance", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(character)
-	local willpower = CustomStatSystem:GetStatByID("Willpower", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(character)
-	local body = CustomStatSystem:GetStatByID("Body", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(character)
+	-- local endurance = CustomStatSystem:GetStatByID("Endurance", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(character)
+    local endurance = char:GetCustomStat(CStats.Endurance.Id)
+	-- local willpower = CustomStatSystem:GetStatByID("Willpower", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(character)
+    local willpower = char:GetCustomStat(CStats.Willpower.Id)
+	-- local body = CustomStatSystem:GetStatByID("Body", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(character)
+    local body = char:GetCustomStat(CStats.Body.Id)
     local resistChance = endurance*2 + willpower + body
     local tagged = deathTag[character]
     if tagged == "SRP_AVOIDDEATH" then

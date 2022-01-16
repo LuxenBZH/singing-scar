@@ -10,7 +10,7 @@ Ext.Require("Shared/Tenebrium/Init.lua")
 -- Timer = Mods.LeaderLib.Timer
 -- CombatLog = Mods.LeaderLib.CombatLog
 
-Mods.LeaderLib.EnableFeature("CustomStatSystem")
+-- Mods.LeaderLib.EnableFeature("CustomStatSystem")
 -- RegisterSkillListener = Mods.LeaderLib.RegisterSkillListener
 -- SKILL_STATE = Mods.LeaderLib.SKILL_STATE
 -- GameHelpers = Mods.LeaderLib.GameHelpers

@@ -1,0 +1,287 @@
+{
+	"Defaults": {
+		"Stats": {
+			"Create": true,
+			"Category": "Aptitudes",
+			"TooltipType": "Stat"
+		}
+	},
+	"Categories" : {
+		"Aptitudes": {
+			"DisplayName": "SRP_Aptitudes_DisplayName",
+			"Description": "SRP_Aptitudes_Description",
+			"SortValue": 1,
+			"HideTotalPoints" : true
+		},
+		"Social": {
+			"DisplayName": "SRP_Social_DisplayName",
+			"Description": "SRP_Social_Description",
+			"SortValue": 2
+		},
+		"Knowledge": {
+			"DisplayName": "SRP_Knowledge_DisplayName",
+			"Description": "SRP_Knowledge_Description",
+			"SortValue": 3
+		},
+		"Development": {
+			"DisplayName": "SRP_Development_DisplayName",
+			"Description": "SRP_Development_Description",
+			"SortValue": 4,
+			"HideTotalPoints" : true
+		},
+		"Miscellaneous": {
+			"DisplayName": "SRP_Miscellaneous_DisplayName",
+			"Description": "SRP_Miscellaneous_Description",
+			"SortValue": 5,
+			"HideTotalPoints" : true
+		}
+	},
+	"Stats": {
+		"Endurance": {
+			"DisplayName": "SRP_Endurance_DisplayName",
+			"Description": "SRP_Endurance_Description",
+			"Category": "Aptitudes",
+			"PointID" : "Aptitudes",
+			"Create" : true,
+			"SortValue" : 1
+		},
+		"Mind": {
+			"DisplayName": "SRP_Mind_DisplayName",
+			"Description": "SRP_Mind_Description",
+			"Category": "Aptitudes",
+			"PointID" : "Aptitudes",
+			"Create" : true,
+			"SortValue" : 2
+		},
+		"Agility": {
+			"DisplayName": "SRP_Agility_DisplayName",
+			"Description": "SRP_Agility_Description",
+			"Category": "Aptitudes",
+			"PointID" : "Aptitudes",
+			"Create" : true,
+			"SortValue" : 3
+		},
+		"Body": {
+			"DisplayName": "SRP_Body_DisplayName",
+			"Description": "SRP_Body_Description",
+			"Category": "Aptitudes",
+			"Create" : true,
+			"SortValue" : 4
+		},
+		"Willpower": {
+			"DisplayName": "SRP_Willpower_DisplayName",
+			"Description": "SRP_Willpower_Description",
+			"Category": "Aptitudes",
+			"Create" : true,
+			"SortValue" : 5
+		},
+		"Perception": {
+			"DisplayName": "SRP_Perception_DisplayName",
+			"Description": "SRP_Perception_Description",
+			"Category": "Aptitudes",
+			"Create" : true,
+			"SortValue" : 6
+		},
+		"Might": {
+			"DisplayName": "SRP_Might_DisplayName",
+			"Description": "SRP_Might_Description",
+			"Category": "Aptitudes",
+			"Create" : true,
+			"SortValue" : 7
+		},
+		"Charisma": {
+			"DisplayName": "SRP_Charisma_DisplayName",
+			"Description": "SRP_Charisma_Description",
+			"Category": "Social",
+			"PointID" : "Social",
+			"Create" : true
+		},
+		"Manipulation": {
+			"DisplayName": "SRP_Manipulation_DisplayName",
+			"Description": "SRP_Manipulation_Description",
+			"Category": "Social",
+			"PointID" : "Social",
+			"Create" : true
+		},
+		"Suasion": {
+			"DisplayName": "SRP_Suasion_DisplayName",
+			"Description": "SRP_Suasion_Description",
+			"Category": "Social",
+			"PointID" : "Social",
+			"Create" : true
+		},
+		"Intimidation": {
+			"DisplayName": "SRP_Intimidation_DisplayName",
+			"Description": "SRP_Intimidation_Description",
+			"Category": "Social",
+			"PointID" : "Social",
+			"Create" : true
+		},
+		"Insight": {
+			"DisplayName": "SRP_Insight_DisplayName",
+			"Description": "SRP_Insight_Description",
+			"Category": "Social",
+			"PointID" : "Social",
+			"Create" : true
+		},
+		"Intuition": {
+			"DisplayName": "SRP_Intuition_DisplayName",
+			"Description": "SRP_Intuition_Description",
+			"Category": "Social",
+			"PointID" : "Social",
+			"Create" : true
+		},
+		"Alchemist": {
+			"DisplayName": "SRP_Alchemist_DisplayName",
+			"Description": "SRP_Alchemist_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"Blacksmith": {
+			"DisplayName": "SRP_Blacksmith_DisplayName",
+			"Description": "SRP_Blacksmith_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"Tailoring": {
+			"DisplayName": "SRP_Tailoring_DisplayName",
+			"Description": "SRP_Tailoring_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"Enchanter": {
+			"DisplayName": "SRP_Enchanter_DisplayName",
+			"Description": "SRP_Enchanter_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"Survivalist": {
+			"DisplayName": "SRP_Survivalist_DisplayName",
+			"Description": "SRP_Survivalist_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"Medicine": {
+			"DisplayName": "SRP_Medicine_DisplayName",
+			"Description": "SRP_Medicine_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"Magic": {
+			"DisplayName": "SRP_Magic_DisplayName",
+			"Description": "SRP_Magic_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"Academics": {
+			"DisplayName": "SRP_Academics_DisplayName",
+			"Description": "SRP_Academics_Description",
+			"Category": "Knowledge",
+			"PointID" : "Knowledge",
+			"Create" : true
+		},
+		"BodyCondition": {
+			"DisplayName": "SRP_BodyCondition_DisplayName",
+			"Description": "SRP_BodyCondition_Description",
+			"Category": "Miscellaneous",
+			"Create" : true
+		},
+		"TenebriumEnergy": {
+			"DisplayName": "SRP_TenebriumEnergy_DisplayName",
+			"Description": "SRP_TenebriumEnergy_Description",
+			"Category": "Miscellaneous",
+			"Create" : true,
+			"Visible" : false
+		},
+		"TenebriumInfusion": {
+			"DisplayName": "SRP_TenebriumInfusion_DisplayName",
+			"Description": "SRP_TenebriumInfusion_Description",
+			"Category": "Miscellaneous",
+			"Create" : true,
+			"Visible" : false
+		},
+		"SRP_InfusionProgress": {
+			"DisplayName": "SRP_InfusionProgress_DisplayName",
+			"Description": "SRP_InfusionProgress_Description",
+			"Category": "Miscellaneous",
+			"Create" : true,
+			"Visible" : false
+		},
+		"Fortune": {
+			"DisplayName": "SRP_Fortune_DisplayName",
+			"Description": "SRP_Fortune_Description",
+			"Category": "Miscellaneous",
+			"PointID" : "Miscellaneous",
+			"Create" : true
+		},
+		"Soul": {
+			"DisplayName": "SRP_Soul_DisplayName",
+			"Description": "SRP_Soul_Description",
+			"Category": "Development",
+			"Create" : true
+		},
+		"AptitudeDevelopment": {
+			"DisplayName": "SRP_AptitudeDevelopment_DisplayName",
+			"Description": "SRP_AptitudeDevelopment_Description",
+			"Category": "Development",
+			"PointID" : "Development",
+			"Create" : true,
+			"SortName" : "A"
+		},
+		"SocialDevelopment": {
+			"DisplayName": "SRP_SocialDevelopment_DisplayName",
+			"Description": "SRP_SocialDevelopment_Description",
+			"Category": "Development",
+			"PointID" : "Development",
+			"Create" : true,
+			"SortName" : "B"
+		},
+		"KnowledgeDevelopment": {
+			"DisplayName": "SRP_KnowledgeDevelopment_DisplayName",
+			"Description": "SRP_KnowledgeDevelopment_Description",
+			"Category": "Development",
+			"PointID" : "Development",
+			"Create" : true,
+			"SortName" : "C"
+		},
+		"AptitudesBase": {
+			"DisplayName": "SRP_AptitudeBase_DisplayName",
+			"Description": "SRP_AptitudeBase_Description",
+			"Category": "Development",
+			"Create" : true,
+			"Visible" : false,
+			"SortName" : "D"
+		},
+		"SocialBase": {
+			"DisplayName": "SRP_SocialBase_DisplayName",
+			"Description": "SRP_SocialBase_Description",
+			"Category": "Development",
+			"Create" : true,
+			"Visible" : false,
+			"SortName" : "E"
+		},
+		"KnowledgeBase": {
+			"DisplayName": "SRP_KnowledgeBase_DisplayName",
+			"Description": "SRP_KnowledgeBase_Description",
+			"Category": "Development",
+			"Create" : true,
+			"Visible" : false,
+			"SortName" : "F"
+		},
+		"Vision": {
+			"DisplayName" : "SRP_Vision_DisplayName",
+			"Description": "SRP_Vision_Description",
+			"Category": "Miscellaneous",
+			"Create" : true,
+			"Visible" : false,
+			"SortName" : "G"
+		}
+	}
+}

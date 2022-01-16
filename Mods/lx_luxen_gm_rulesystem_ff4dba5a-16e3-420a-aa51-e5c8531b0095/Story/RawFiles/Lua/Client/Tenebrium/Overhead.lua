@@ -6,7 +6,7 @@ Ext.RegisterListener("SessionLoaded", function()
         local i = 2
         local scArray = {}
         while i < #root.addOH_array do
-            Ext.Print("addOH_array["..i.."]: ", root.addOH_array[i])
+            -- Ext.Print("addOH_array["..i.."]: ", root.addOH_array[i])
             if type(root.addOH_array[i]) == "string" then
                 -- Ext.Print(root.addOH_array[i])
                 if string.find(root.addOH_array[i], "+") and string.find(root.addOH_array[i], ">-9999") then

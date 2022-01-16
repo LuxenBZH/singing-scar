@@ -2,8 +2,10 @@
 Ext.RegisterOsirisListener("ObjectTurnEnded", 1, "before", function(object)
     if ObjectIsCharacter(object) == 0 then return end
     local character = Ext.GetCharacter(object)
-    local te = CustomStatSystem:GetStatByID("TenebriumEnergy", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(object)
-    local ti =  CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(object)
+    -- local te = CustomStatSystem:GetStatByID("TenebriumEnergy", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(object)
+    -- local ti =  CustomStatSystem:GetStatByID("TenebriumInfusion", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(object)
+    local te = character:GetCustomStat(StatTE.Id)
+    local ti = character:GetCustomStat(StatTI.Id)
     local isOvercharged = te > ti
     if isOvercharged and GetOverchargeStep(object) > 0 then
         local hit = NRD_HitPrepare(object, object)

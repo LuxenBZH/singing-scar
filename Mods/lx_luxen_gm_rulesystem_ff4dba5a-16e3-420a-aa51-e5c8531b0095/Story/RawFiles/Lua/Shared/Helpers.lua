@@ -1,4 +1,4 @@
-CustomStatSystem = Mods.LeaderLib.CustomStatSystem
+-- CustomStatSystem = Mods.LeaderLib.CustomStatSystem
 
 damageTypes = {
     "Physical",
@@ -152,19 +152,19 @@ SScarStats = {
 
 local statCache = {}
 
-function FindCustomStat(name)
-    if statCache[name] then
-        return statCache[name]
-    end
-    for stat in CustomStatSystem:GetAllStats(false, false, true) do
-		local cleanName = string.gsub(Ext.GetTranslatedStringFromKey(stat.DisplayName), "</.*>", "")
-		cleanName = string.gsub(cleanName, "<.*>", "")
-        if cleanName == name or stat:GetDisplayName() == name then
-            statCache[name] = stat.ID
-            return stat.ID
-        end
-    end
-end
+-- function FindCustomStat(name)
+--     if statCache[name] then
+--         return statCache[name]
+--     end
+--     for stat in CustomStatSystem:GetAllStats(false, false, true) do
+-- 		local cleanName = string.gsub(Ext.GetTranslatedStringFromKey(stat.DisplayName), "</.*>", "")
+-- 		cleanName = string.gsub(cleanName, "<.*>", "")
+--         if cleanName == name or stat:GetDisplayName() == name then
+--             statCache[name] = stat.ID
+--             return stat.ID
+--         end
+--     end
+-- end
 
 local aptitudesScaling = {
     ["1"] = 6,
@@ -230,27 +230,27 @@ tnCalc = {
     Tailoring = {Tailoring = 8},
 }
 
-function GetTargetNumber(character, stat)
-    local tn = 0
-    if tnCalc[stat.ID] ~= nil then
-        tn = 0
-        for source, scaling in pairs(tnCalc[stat.ID]) do
-            if type(scaling) == "number" then
-                tn = tn + math.floor(scaling * CustomStatSystem:GetStatByID(source):GetValue(character))
-            else
-                for x=1,CustomStatSystem:GetStatByID(source):GetValue(character),1 do
-                    tn = tn + scaling[tostring(x)]
-                end
-            end
-        end
-        if stat.PointID == "Social" then
-            tn = tn + 2*character.Stats.BasePersuasion
-        elseif stat.PointID == "Knowledge" then
-            tn = tn + 2*character.Stats.BaseTelekinesis + 2*character.Stats.BaseLoremaster
-        end
-    end
-    return tn
-end
+-- function GetTargetNumber(character, stat)
+--     local tn = 0
+--     if tnCalc[stat.ID] ~= nil then
+--         tn = 0
+--         for source, scaling in pairs(tnCalc[stat.ID]) do
+--             if type(scaling) == "number" then
+--                 tn = tn + math.floor(scaling * CustomStatSystem:GetStatByID(source):GetValue(character))
+--             else
+--                 for x=1,CustomStatSystem:GetStatByID(source):GetValue(character),1 do
+--                     tn = tn + scaling[tostring(x)]
+--                 end
+--             end
+--         end
+--         if stat.PointID == "Social" then
+--             tn = tn + 2*character.Stats.BasePersuasion
+--         elseif stat.PointID == "Knowledge" then
+--             tn = tn + 2*character.Stats.BaseTelekinesis + 2*character.Stats.BaseLoremaster
+--         end
+--     end
+--     return tn
+-- end
 
 function ShiftTable(t)
     local temp = CopyTable(t)
@@ -263,7 +263,8 @@ function ShiftTable(t)
 end
 
 function GetOverchargeStep(character)
-    local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    -- local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    local ti = Ext.GetCharacter(character):GetCustomStat(StatTI.Id)
     if ti > 80 then return 4
     elseif ti > 60 then return 3
     elseif ti > 40 then return 2
@@ -273,7 +274,9 @@ function GetOverchargeStep(character)
 end
 
 function isOvercharged(character)
-    return CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character) > CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    -- return CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character) > CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    character = Ext.GetCharacter(character)
+    return character:GetCustomStat(StatTE.Id) > character:GetCustomStat(StatTI.Id)
 end
 
 function GetTotalDamage(target ,hitHandle)

@@ -38,6 +38,7 @@
 	<content contentuid="h797eca4dg8164g4909gb7e3g4afb72425694"> </content>
 	<content contentuid="h7b87509cg6034g49cfgaeabgd32760de3659">Might</content>
 	<content contentuid="h7ce03212g217cg4476g8a1bg200123169de6">Persona points are a currency to increase your stats. You can gain some by participating, but also as a reward for roleplaying and creating interesting situations.</content>
+	<content contentuid="h7d81eed5g42dcg480aga1acgdc84674e0c98">Reset Boost</content>
 	<content contentuid="h80aa9f0bg3e5cg477dg9524gb3c9e2b0f2d8">Give you the ability to look for herbs and special ingredients during downtimes. Also reflects your knowledge about plants, chemistry and biology.&lt;br&gt;Rules works as follows: each point increase the Target number by 10 and the unit figure of the result is the number of ingredients found.</content>
 	<content contentuid="h8250e8dcg34c4g458eg805bg80873c80dfc8">Fortune allow to roll again. Replenish once per session.</content>
 	<content contentuid="h870da36ag7cbag4ef8g872dgac732b0174a4">Knowledge</content>
@@ -50,6 +51,7 @@
 	<content contentuid="h98373cccg3d1eg40acgaeb4g9f9a5ff2e570">Insight</content>
 	<content contentuid="h9ae1c842g7a84g49b7gae40g23b5ed3cfd6e">Invest Persona points to develop your Knowledge. Each stack of 2 Persona points grants you one point to spend in Knowledge.</content>
 	<content contentuid="h9d4d6cc1gb75fg4a0bga025g365b791a35ef">Reflect your body physical and spiritual condition. Each time you die, you loose a point. &lt;font color=#ff0000&gt;At 0, your character is completely knocked out !&lt;/font&gt;</content>
+	<content contentuid="h9f3eecf6gf597g48c3ga915g66b229c254bd">Set Base Stat</content>
 	<content contentuid="haa456c6cgf452g40d5gb2e4geb5a5f5aab82">Intimidation</content>
 	<content contentuid="haf022bf8g09a3g4247gb719g315757f28902">Invest Persona points to develop your Aptitudes. Each stack of 4 Persona points grants you one point to spend in Aptitudes.</content>
 	<content contentuid="haf3c259bg1be5g4690gb66egb2dfd7ec73f4">Best used for convincing someone by reasoning, agreements and having arguments.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Mind.&lt;/font&gt;</content>
@@ -72,6 +74,7 @@
 	<content contentuid="he7a98b35gf9aag4198ga157gee9f7fd03f0c">Knowledge about common races body and how to cure deep afflictions that common spells can not cure. Can be used to cure some conditions if you have the proper tools.</content>
 	<content contentuid="he7ec5735g74a2g4cb7gbaeag27c33ee0d69f">Represents the knowledge of your character in diverse fields.The &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; increase by &lt;font color=#c68c53&gt;8&lt;/font&gt; for each point invested.&lt;br&gt;Each point in Telekinesis and Loremaster increase the &lt;font color=#c68c53&gt;Target Number&lt;/font&gt; by &lt;font color=#c68c53&gt;2&lt;/font&gt;&lt;br&gt;Each stat cannot go above &lt;font color=#ccffff&gt;10&lt;/font&gt;.</content>
 	<content contentuid="he88bce97gb1ddg43d0g85a5g898a6a007020">Gives you the ability to enchant equipment, change wand/staff element and add sockets. Also reflects knowledge about enchantments.&lt;br&gt;See the rule sheet for detailed crafting rules.</content>
+	<content contentuid="he915ee31g08cbg4650g837fg533d6244298a">Add Attribute Points</content>
 	<content contentuid="hec566710g3d6bg44f0gb1b7g21eeb808bf79">Aptitudes</content>
 	<content contentuid="heeedc921g2da7g4ebcg8e61g9ed44ce375be">Gives you the ability to craft belts, Finesse and Intelligence equipment and enhance it. Also reflects knowledge about clothing history, such as recognizing people or factions and emblems.&lt;br&gt;See the rule sheet for detailed crafting rules.</content>
 	<content contentuid="hf3b494e8g7273g4e9eg95aegf17d0c8b6dee">Best used for bartering, catching people attention, charm and generate emotions.&lt;br&gt;&lt;font color=&quot;#00cc00&quot;&gt;Target Number +1 per point in Endurance.&lt;/font&gt;</content>

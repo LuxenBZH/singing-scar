@@ -2,7 +2,7 @@
 Ext.AddPathOverride("Public/Game/GUI/statusConsole.swf", "Public/lx_luxen_gm_rulesystem_ff4dba5a-16e3-420a-aa51-e5c8531b0095/Game/GUI/statusConsole - Copie.swf")
 
 local function SetOverchargeAnimation(root, enable, minAlpha, maxAlpha, time)
-    Ext.Print(enable, root.console_mc.enableBlink)
+    -- Ext.Print(enable, root.console_mc.enableBlink)
     if enable and not root.console_mc.enableBlink then
         root.console_mc.enableBlink = true
         root.console_mc.appearBegin = minAlpha
@@ -28,14 +28,16 @@ local function SetShadowBarAmount(ui, call, ...)
     else
         character = Ext.GetCharacter(Ext.DoubleToHandle(sheet:GetValue("charHandle", "number")))
     end
-    local amount = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character)
+    -- local amount = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(character)
+    local amount = character:GetCustomStat(StatTE.Id)
     local statusConsole = Ext.GetBuiltinUI("Public/Game/GUI/statusConsole.swf")
     local text = "T-Energy:"..amount.."/100"
     statusConsole:GetRoot().console_mc.sbHolder_mc.bg_mc.gotoAndStop(3)
     statusConsole:GetRoot().console_mc.sbHolder2_mc.bg_mc.gotoAndStop(4)
     statusConsole:GetRoot().console_mc.sbHolder_mc.setBar(amount/100, 1)
     statusConsole:GetRoot().console_mc.sbHolder2_mc.setBar(amount/100, 1)
-    local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    -- local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(character)
+    local ti = character:GetCustomStat(StatTI.Id)
     if amount > ti then
         SetOverchargeAnimation(statusConsole:GetRoot(), true, 0, 0.6, 0.8)
     else
@@ -112,10 +114,19 @@ local function AddCustomInfo(ui, ...)
     if targetHandle ~= 0.0 then
         charHandle = targetHandle
     end
-    local char = Ext.GetCharacter(Ext.DoubleToHandle(charHandle))
+    local char = nil
+    if sheet:GetRoot().isGameMasterChar then
+        if Ext.GetPickingState().HoverCharacter then
+            char = Ext.GetCharacter(Ext.GetPickingState().HoverCharacter)
+        end
+    end
+    if not char then
+        char = Ext.GetCharacter(Ext.DoubleToHandle(charHandle))
+    end
     -- Ext.Print(char.DisplayName)
-    local te = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(char)
-    local ti = CustomStatSystem:GetStatByID("TenebriumInfusion", SScarID):GetValue(char)
+    -- local te = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(char)
+    local te = char:GetCustomStat(StatTE.Id)
+    local ti = char:GetCustomStat(StatTI.Id)
     AddToSecStatArray(sheet:GetRoot().secStat_array, 0, "T. Energy", tostring(te).."/100", "", 4, 101)
     AddToSecStatArray(sheet:GetRoot().secStat_array, 4, "", "", "", 0, 99)
     AddToSecStatArray(sheet:GetRoot().secStat_array, 0, "T. Infusion", tostring(ti).."%", "", 0, 102)

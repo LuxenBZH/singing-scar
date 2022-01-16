@@ -97,7 +97,8 @@ local function OnStatTooltip(character, stat, tooltip)
     if stat == "UNKNOWN STAT" and isTenebriumInfusionTooltip then
         tooltip:GetElement("StatName").Label = "Tenebrium Infusion"
         statsDescription.Label = "How tainted your Source is. The more tainted you are, the more side effects you will encounter."
-        local ti = CustomStatSystem:GetStatByID("TenebriumInfusion"):GetValue(character)
+        -- local ti = CustomStatSystem:GetStatByID("TenebriumInfusion"):GetValue(character)
+        local ti = character:GetCustomStat(StatTI.Id)
         if ti > 0 then
             tooltip:AppendElement({
                 Type = "StatsPercentageBoost",

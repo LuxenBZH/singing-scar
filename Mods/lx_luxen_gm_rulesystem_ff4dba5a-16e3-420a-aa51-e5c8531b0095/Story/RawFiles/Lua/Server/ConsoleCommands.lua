@@ -118,11 +118,18 @@ function RollCustomStats(character)
 end
 
 local function SetCustomStat(stat, amount)
-	local cstat = CustomStatSystem:GetStatByID(stat, SScarID)
+	-- local cstat = CustomStatSystem:GetStatByID(stat, SScarID)
+	local cstat = CStats[stat]
 	if cstat == nil or amount == nil then return end
 	local selected = Osi.DB_GM_Selection:Get(nil)
 	for i,char in pairs(selected) do
-        cstat:SetValue(char[1], tonumber(amount))
+        -- cstat:SetValue(char[1], tonumber(amount))
+		char = Ext.GetCharacter(char[1])
+		if cstat.DisplayName == "Tenebrium Infusion" then
+			ManageInfusionMemoryBonus(char, char:GetCustomStat(StatTI), tonumber(amount))
+		end
+		char:SetCustomStat(cstat.Id, tonumber(amount))
+		
 		-- SRP_SyncAttributeBonuses(char[1])
 	end
 end
@@ -136,12 +143,18 @@ end
 
 local function AddToCustomStat(stat, amount)
 	Ext.Print(stat)
-	local cstat = CustomStatSystem:GetStatByID(stat, SScarID)
+	-- local cstat = CustomStatSystem:GetStatByID(stat, SScarID)
+	local cstat = CStat[stat]
 	if cstat == nil or amount == nil then return end
 	local selected = Osi.DB_GM_Selection:Get(nil)
 	for i,char in pairs(selected) do
-		local base = cstat:GetValue(char[1])
-		cstat:SetValue(char[1], tonumber(base+amount))
+		local char = Ext.GetCharacter(char[1])
+		if cstat.DisplayName == "Tenebrium Infusion" then
+			ManageInfusionMemoryBonus(char, char:GetCustomStat(StatTI.Id), char:GetCustomStat(StatTI.Id) + tonumber(amount))
+		end
+		char:SetCustomStat(Cstat[stat], char:GetCustomStat(CStats[stat].Id) + tonumber(amount))
+		-- local base = cstat:GetValue(char[1])
+		-- cstat:SetValue(char[1], tonumber(base+amount))
 	end
 end
 
@@ -209,10 +222,12 @@ local function SetTE(value)
 	local selected = Osi.DB_GM_Selection:Get(nil)
 	for i,char in pairs(selected) do
 		-- PersistentVars.tEnergyServer[Ext.GetCharacter(char[1]).MyGuid] = tonumber(value)
-		local oldValue = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(char[1])
-		SetVarInteger(char[1], "SRP_TEnergy", value - oldValue)
-		SetTag(char[1], "SRP_TEIgnoreCombat")
-    	SetStoryEvent(char[1], "SRP_UpdateTE")
+		-- local oldValue = CustomStatSystem:GetStatByID("TenebriumEnergy", SScarID):GetValue(char[1])
+		char = Ext.GetCharacter(char[1])
+		local oldValue = char:GetCustomStat(StatTE.Id)
+		SetVarInteger(char.MyGuid, "SRP_TEnergy", value - oldValue)
+		SetTag(char.MyGuid, "SRP_TEIgnoreCombat")
+    	SetStoryEvent(char.MyGuid, "SRP_UpdateTE")
 	end
 end
 

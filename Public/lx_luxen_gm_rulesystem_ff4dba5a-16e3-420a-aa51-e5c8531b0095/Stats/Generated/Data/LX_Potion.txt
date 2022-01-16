@@ -1,0 +1,3 @@
+new entry "Stats_LX_TenebriumGalvanised"
+type "Potion"
+data "APMaximum" "-4"
