@@ -1,3 +1,22 @@
-new entry "Stats_LX_TenebriumGalvanised"
+new entry "Stats_SRP_AvoidDeath"
 type "Potion"
-data "APMaximum" "-4"
+data "DamageBoost" "-30"
+data "CriticalChance" "-100"
+
+new entry "Stats_SRP_Fatigue"
+type "Potion"
+data "Initiative" "-1"
+data "AccuracyBoost" "-5"
+data "DodgeBoost" "-5"
+data "DamageBoost" "-10"
+
+new entry "Stats_SRP_MovingInvis"
+type "Potion"
+
+new entry "SRP_Potion_Base"
+type "Potion"
+
+new entry "Stats_SRP_NightVision"
+type "Potion"
+data "Sight" "-750"
+

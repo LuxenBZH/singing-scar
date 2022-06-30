@@ -22,6 +22,10 @@ local function ManageCharacterDeath(character, status, handle, instigator)
 	if HasActiveStatus(character, "UNCONSCIOUS") == 1 then return end
 	Ext.Print("DEATH!")
     local char = Ext.GetCharacter(character)
+    if char.Stats.TALENT_ResistDead and IsTagged(character, "SRP_ComebackKid_Used") == 0 and CharacterIsInCombat(character) == 1 then
+        SetTag(character, "SRP_ComebackKid_Used")
+        return
+    end
 	-- Manage death saving throw
 	-- local endurance = CustomStatSystem:GetStatByID("Endurance", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(character)
     local endurance = char:GetCustomStat(CStats.Endurance.Id)
@@ -55,6 +59,13 @@ end
 
 Ext.RegisterOsirisListener("NRD_OnStatusAttempt", 4, "before", ManageCharacterDeath)
 
+Ext.RegisterOsirisListener("ObjectLeftCombat", 2, "before", function(character, combatID)
+    ClearTag(character, "SRP_ComebackKid_Used")
+end)
+
+Ext.RegisterOsirisListener("CharacterResurrected", 1, "before", function(character)
+    ClearTag(character, "SRP_ComebackKid_Used")
+end)
 --Ext.NewCall(ManageCharacterDeath, "LX_EXT_ManageDeath", "(CHARACTERGUID)_Character, (INTEGER64)_StatusHandle, (CHARACTERGUID)_Instigator");
 
 local function DeathTagCharacter(target, instigator, damage, handle)

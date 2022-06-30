@@ -1,5 +1,6 @@
 local function CalculateIdentificationScore(char)
     -- local mind = CustomStatSystem:GetStatByID("Mind", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(char)
+    char = Ext.GetCharacter(char)
     local mind = char:GetCustomStat(CStats.Mind.Id)
     -- local perception = CustomStatSystem:GetStatByID("Perception", "ff4dba5a-16e3-420a-aa51-e5c8531b0095"):GetValue(char)
     local perception = char:GetCustomStat(CStats.Perception.Id)

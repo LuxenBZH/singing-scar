@@ -194,7 +194,6 @@ local function ShowTenebriumInfusionTooltip(ui, call, ...)
     Ext.Dump({...})
 end
 
-
 local function SRP_SetupUI()
     local charSheet = Ext.GetBuiltinUI("Public/Game/GUI/characterSheet.swf")
     local statusConsole = Ext.GetBuiltinUI("Public/Game/GUI/statusConsole.swf")
